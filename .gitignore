@@ -1,0 +1,12 @@
+.claude
+pdfviewer/release
+pdfviewer/debug
+pdfviewer/.qtc_clangd
+pdfviewer/%SystemDrive%
+
+pdfviewer/lib
+.vs
+
+
+
+
