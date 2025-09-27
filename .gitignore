@@ -4,7 +4,10 @@ pdfviewer/debug
 pdfviewer/.qtc_clangd
 pdfviewer/%SystemDrive%
 
-pdfviewer/lib
+pdfviewer/lib/mupdf
+pdfviewer/lib/pdflib.dll
+pdfviewer/lib/pdflib.lib
+
 .vs
 
 
