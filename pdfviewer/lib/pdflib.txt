@@ -1,0 +1,1 @@
+这个目录缺少 对应版本的pdflib.dll 和 pdflib.lib文件，比如9.0版本
