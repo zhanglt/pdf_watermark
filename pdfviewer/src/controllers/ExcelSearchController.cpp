@@ -268,8 +268,21 @@ bool ExcelSearchController::isTreeWidgetEmpty(QTreeWidget *treeWidget)
 QString ExcelSearchController::exportTreeWidgetToExcel(QTreeWidget &treeWidget, 
                                                       const QString &exportFilePath)
 {
+
+
     Document exportDoc;
-    
+    // 设置数据行格式
+    Format dataFormat;
+    dataFormat.setBorderStyle(Format::BorderThin);
+
+    Format hyperlinkFormat;
+        // 设置超链接的字体颜色（通常是蓝色）
+        hyperlinkFormat.setFontColor(QColor(0, 0, 255));  // 蓝色
+        // 设置下划线（超链接通常有下划线）
+        //hyperlinkFormat.setFontUnderline(hyperlinkFormat.FontUnderlineSingle);
+        // 设置边框（可选）
+        hyperlinkFormat.setBorderStyle(Format::BorderThin);
+
     // 设置Excel文件的表头
     exportDoc.write(1, 1, "源文件");
     exportDoc.write(1, 2, "工作表");
@@ -307,19 +320,16 @@ QString ExcelSearchController::exportTreeWidgetToExcel(QTreeWidget &treeWidget,
             QString cellValue = resultItem->text(2);
             
             // 写入数据到Excel
-            exportDoc.write(currentRow, 1, fileName);
+            exportDoc.currentWorksheet()->writeHyperlink(currentRow, 1,QUrl::fromLocalFile(fileName),hyperlinkFormat,fileName);
+            //exportDoc.write(currentRow, 1, fileName);
             exportDoc.write(currentRow, 2, sheetName);
             exportDoc.write(currentRow, 3, cellReference);
             exportDoc.write(currentRow, 4, cellValue);
-            
-            // 设置数据行格式
-            Format dataFormat;
-            dataFormat.setBorderStyle(Format::BorderThin);
-            
-            for (int col = 1; col <= 4; ++col) {
+
+            for (int col = 2; col <= 4; ++col) {
                 exportDoc.write(currentRow, col, exportDoc.read(currentRow, col), dataFormat);
             }
-            
+
             currentRow++;
         }
     }
