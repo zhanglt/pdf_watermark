@@ -125,6 +125,8 @@ class MainWindow : public QMainWindow {
 
   void on_btnSearch_export_clicked();
 
+  void on_lineEditInput_Search_Key_returnPressed();
+
 signals:
   void Finished();
 
