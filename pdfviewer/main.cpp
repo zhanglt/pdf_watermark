@@ -23,7 +23,7 @@
 #include <QPdfView>
 #include <QUrl>
 #include <QStandardPaths>
-#include "mainwindow.h"
+//#include "mainwindow.h"
 #include "qtranslator.h"
 #include "zoomselector.h"
 
@@ -38,12 +38,12 @@
  */
 int main(int argc, char *argv[]) {
   // 创建Qt应用程序实例
-  QApplication a(argc, argv);
+  QApplication app(argc, argv);
 
   // 加载中文本地化文件，实现界面汉化
   QTranslator base;
   if (base.load("languages/qt_zh_CN.qm")) {
-    a.installTranslator(&base);  // 安装翻译器
+    app.installTranslator(&base);  // 安装翻译器
   } else {
     // 翻译文件加载失败时显示警告对话框
     QMessageBox::warning(
@@ -75,7 +75,7 @@ int main(int argc, char *argv[]) {
   // w.setStyleSheet(styleSheet);  // 备用样式设置
 
   // 获取命令行参数列表
-  QStringList args = a.arguments();
+  QStringList args = app.arguments();
   
   // 设置主窗口固定尺寸为 818x650 像素
   w.setFixedSize(818, 650);
@@ -101,5 +101,5 @@ int main(int argc, char *argv[]) {
   emit w.m_zoomSelector->zoomModeChanged(QPdfView::FitToWidth);
 
   // 启动Qt事件循环，程序进入主循环等待用户交互
-  return a.exec();
+  return app.exec();
 }
