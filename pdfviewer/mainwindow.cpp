@@ -19,7 +19,7 @@
 #pragma execution_character_set("utf-8")
 
 #include <windows.h>
-
+#include <QDesktopServices>
 #include <QDebug>
 #include <QFileDialog>
 #include <QFutureWatcher>
@@ -1388,6 +1388,17 @@ QString MainWindow::exportTreeWidgetToExcel(QTreeWidget &treeWidget, const QStri
 {
 
     Document exportDoc;
+    // 设置数据行格式
+    Format dataFormat;
+    dataFormat.setBorderStyle(Format::BorderThin);
+
+    Format hyperlinkFormat;
+        // 设置超链接的字体颜色（通常是蓝色）
+        hyperlinkFormat.setFontColor(QColor(0, 0, 255));  // 蓝色
+        // 设置下划线（超链接通常有下划线）
+        //hyperlinkFormat.setFontUnderline(hyperlinkFormat.FontUnderlineSingle);
+        // 设置边框（可选）
+        hyperlinkFormat.setBorderStyle(Format::BorderThin);
 
     // 设置Excel文件的表头
     exportDoc.write(1, 1, "源文件");
@@ -1431,16 +1442,15 @@ QString MainWindow::exportTreeWidgetToExcel(QTreeWidget &treeWidget, const QStri
             QString cellValue = resultItem->text(2);
 
             // 写入数据到Excel
+            exportDoc.currentWorksheet()->writeHyperlink(currentRow, 1,QUrl::fromLocalFile(fileName),hyperlinkFormat,fileName);
             exportDoc.write(currentRow, 1, fileName);
             exportDoc.write(currentRow, 2, sheetName);
             exportDoc.write(currentRow, 3, cellReference);
             exportDoc.write(currentRow, 4, cellValue);
 
-            // 设置数据行格式
-            Format dataFormat;
-            dataFormat.setBorderStyle(Format::BorderThin);
 
-            for (int col = 1; col <= 4; ++col) {
+
+            for (int col = 2; col <= 4; ++col) {
                 exportDoc.write(currentRow, col, exportDoc.read(currentRow, col), dataFormat);
             }
 
@@ -1513,17 +1523,34 @@ void MainWindow::on_btnSearch_export_clicked()
 {
     if (isTreeWidgetEmpty(ui->treeWidget_Search)) {
            QMessageBox::information(nullptr, "数据导出", "搜索结果数据为空");
-       } else {
-
-
-
-    QString fileName = QFileDialog::getSaveFileName(this, "保存文件", "search.xlsx", "Excel Files (*.xlsx)");
+       } else
+    {
+    QString fileName = QFileDialog::getSaveFileName(this, "保存文件", "c:/search.xlsx", "Excel Files (*.xlsx)");
     QString result;
        if (!fileName.isEmpty()) {
            result=exportTreeWidgetToExcel(*ui->treeWidget_Search, fileName);
            if (!result.isNull()){
-            QMessageBox::information(nullptr, "导出结果", result);
+               int reply = QMessageBox::question(
+                      nullptr,
+                      "导出结果",
+                      "打开导出文件吗？",
+                      QMessageBox::Yes | QMessageBox::No,QMessageBox::No
+                  );
+                  // 判断用户选择
+                  if (reply == QMessageBox::Yes) {
+                      QUrl url = QUrl::fromLocalFile(fileName);
+                        // 打开目录或文件
+                       QDesktopServices::openUrl(url);
+                  }
+
+           }else{
+               QMessageBox::information(nullptr,"搜索结果导出","导出失败");
            }
         }
     }
+}
+
+void MainWindow::on_lineEditInput_Search_Key_returnPressed()
+{
+on_btnSearch_clicked();
 }
