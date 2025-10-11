@@ -40,7 +40,7 @@ PDF Widgets 是一款基于 Qt 框架开发的功能强大的 PDF 文档处理�
   - Qt PDFWidgets
 - **第三方库**:
   - MuPDF - PDF 渲染引擎
-  - PDFlib - 高级 PDF 操作
+  - PDFlib - 高级 PDF 操作（系统不提供商业软件本lic，请自行解决）
   - libxml2 - XML/SVG 处理
   - libiconv - 字符编码转换
   - Qt5Xlsx - Excel 文件处理
