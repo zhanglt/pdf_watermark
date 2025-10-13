@@ -3889,23 +3889,185 @@ debug\main.obj: main.cpp H:\Qt\Qt5.15.10-release\include\QtWidgets\QApplication 
 		H:\Qt\Qt5.15.10-release\include\QtCore\QUrl \
 		H:\Qt\Qt5.15.10-release\include\QtCore\QStandardPaths \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qstandardpaths.h \
-		H:\Qt\Qt5.15.10-release\include\QtCore\qtranslator.h \
-		zoomselector.h \
-		H:\Qt\Qt5.15.10-release\include\QtWidgets\QComboBox \
-		H:\Qt\Qt5.15.10-release\include\QtWidgets\qcombobox.h \
+		mainwindow.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\QLabel \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qlabel.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QLoggingCategory \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qloggingcategory.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\QMainWindow \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qmainwindow.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtabwidget.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qicon.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QThreadPool \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qthreadpool.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qthread.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qdeadlinetimer.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qelapsedtimer.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qrunnable.h \
+		H:\Qt\Qt5.15.10-release\include\QtPdf\QPdfDocument \
+		H:\Qt\Qt5.15.10-release\include\QtPdf\qpdfdocument.h \
+		H:\Qt\Qt5.15.10-release\include\QtPdf\qtpdfglobal.h \
+		H:\Qt\Qt5.15.10-release\include\QtPdf\qpdfdocumentrenderoptions.h \
+		H:\Qt\Qt5.15.10-release\include\QtPdf\qpdfnamespace.h \
+		H:\Qt\Qt5.15.10-release\include\QtPdf\qpdfselection.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qclipboard.h \
+		function.h \
+		include\function\FileDetector.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QString \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QRegularExpression \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qregularexpression.h \
+		include\function\StringConverter.h \
+		include\function\FileSystemUtils.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QDir \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qdir.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfileinfo.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QStringList \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QFileInfo \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QVariantList \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QDebug \
+		include\function\FormatConverter.h \
+		lib\mupdf\include\mupdf\fitz.h \
+		lib\mupdf\include\mupdf\fitz\version.h \
+		lib\mupdf\include\mupdf\fitz\config.h \
+		lib\mupdf\include\mupdf\fitz\system.h \
+		lib\mupdf\include\mupdf\fitz\export.h \
+		lib\mupdf\include\mupdf\memento.h \
+		lib\mupdf\include\mupdf\fitz\track-usage.h \
+		lib\mupdf\include\mupdf\fitz\context.h \
+		lib\mupdf\include\mupdf\fitz\geometry.h \
+		lib\mupdf\include\mupdf\fitz\output.h \
+		lib\mupdf\include\mupdf\fitz\buffer.h \
+		lib\mupdf\include\mupdf\fitz\string-util.h \
+		lib\mupdf\include\mupdf\fitz\stream.h \
+		lib\mupdf\include\mupdf\fitz\log.h \
+		lib\mupdf\include\mupdf\fitz\crypt.h \
+		lib\mupdf\include\mupdf\fitz\getopt.h \
+		lib\mupdf\include\mupdf\fitz\hash.h \
+		lib\mupdf\include\mupdf\fitz\pool.h \
+		lib\mupdf\include\mupdf\fitz\tree.h \
+		lib\mupdf\include\mupdf\fitz\bidi.h \
+		lib\mupdf\include\mupdf\fitz\xml.h \
+		lib\mupdf\include\mupdf\fitz\archive.h \
+		lib\mupdf\include\mupdf\fitz\compress.h \
+		lib\mupdf\include\mupdf\fitz\pixmap.h \
+		lib\mupdf\include\mupdf\fitz\store.h \
+		lib\mupdf\include\mupdf\fitz\separation.h \
+		lib\mupdf\include\mupdf\fitz\color.h \
+		lib\mupdf\include\mupdf\fitz\compressed-buffer.h \
+		lib\mupdf\include\mupdf\fitz\filter.h \
+		lib\mupdf\include\mupdf\fitz\heap.h \
+		lib\mupdf\include\mupdf\fitz\heap-imp.h \
+		lib\mupdf\include\mupdf\fitz\bitmap.h \
+		lib\mupdf\include\mupdf\fitz\image.h \
+		lib\mupdf\include\mupdf\fitz\shade.h \
+		lib\mupdf\include\mupdf\fitz\font.h \
+		lib\mupdf\include\mupdf\fitz\path.h \
+		lib\mupdf\include\mupdf\fitz\text.h \
+		lib\mupdf\include\mupdf\fitz\glyph.h \
+		lib\mupdf\include\mupdf\fitz\device.h \
+		lib\mupdf\include\mupdf\fitz\display-list.h \
+		lib\mupdf\include\mupdf\fitz\structured-text.h \
+		lib\mupdf\include\mupdf\fitz\types.h \
+		lib\mupdf\include\mupdf\fitz\transition.h \
+		lib\mupdf\include\mupdf\fitz\glyph-cache.h \
+		lib\mupdf\include\mupdf\fitz\link.h \
+		lib\mupdf\include\mupdf\fitz\outline.h \
+		lib\mupdf\include\mupdf\fitz\document.h \
+		lib\mupdf\include\mupdf\fitz\util.h \
+		lib\mupdf\include\mupdf\fitz\writer.h \
+		lib\mupdf\include\mupdf\fitz\band-writer.h \
+		lib\mupdf\include\mupdf\fitz\write-pixmap.h \
+		lib\mupdf\include\mupdf\fitz\output-svg.h \
+		lib\mupdf\include\mupdf\fitz\story.h \
+		lib\mupdf\include\mupdf\fitz\story-writer.h \
+		lib\pdflib.hpp \
+		lib\pdflib.h \
+		lib\cpp_wrapped.h \
+		include\function\PdfOperations.h \
+		include\function\WatermarkProcessor.h \
+		lib\libxml2\include\libxml2\libxml\parser.h \
+		lib\libxml2\include\libxml2\libxml\xmlversion.h \
+		lib\libxml2\include\libxml2\libxml\xmlexports.h \
+		lib\libxml2\include\libxml2\libxml\tree.h \
+		lib\libxml2\include\libxml2\libxml\xmlstring.h \
+		lib\libxml2\include\libxml2\libxml\xmlmemory.h \
+		lib\libxml2\include\libxml2\libxml\xmlregexp.h \
+		lib\libxml2\include\libxml2\libxml\dict.h \
+		lib\libxml2\include\libxml2\libxml\hash.h \
+		lib\libxml2\include\libxml2\libxml\valid.h \
+		lib\libxml2\include\libxml2\libxml\xmlerror.h \
+		lib\libxml2\include\libxml2\libxml\list.h \
+		lib\libxml2\include\libxml2\libxml\xmlautomata.h \
+		lib\libxml2\include\libxml2\libxml\entities.h \
+		lib\libxml2\include\libxml2\libxml\encoding.h \
+		lib\iconv\include\iconv.h \
+		lib\libxml2\include\libxml2\libxml\xmlIO.h \
+		lib\libxml2\include\libxml2\libxml\SAX2.h \
+		lib\libxml2\include\libxml2\libxml\threads.h \
+		include\function\GeometryUtils.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\QFont \
+		H:\Qt\Qt5.15.10-release\include\QtGui\QFontMetrics \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QSize \
+		H:\Qt\Qt5.15.10-release\include\QtSvg\QSvgGenerator \
+		H:\Qt\Qt5.15.10-release\include\QtSvg\qsvggenerator.h \
+		H:\Qt\Qt5.15.10-release\include\QtSvg\qtsvgglobal.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\QPainter \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qpainter.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qtextoption.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qpen.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\QColor \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qmath.h \
+		include\mark\watermarkThread.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QObject \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QRunnable \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QVector \
+		include\mark\watermarkThreadSingle.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QMutex \
+		include\pdf2image\pdf2ImageThreadSingle.h \
+		include\search\SearchThread.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QList \
+		lib\qtxlsx\include\QtXlsx\xlsxdocument.h \
+		..\..\QtXlsx\src\xlsx\xlsxdocument.h \
+		..\..\QtXlsx\src\xlsx\xlsxglobal.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QtGlobal \
+		..\..\QtXlsx\src\xlsx\xlsxformat.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QByteArray \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QExplicitlySharedDataPointer \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QVariant \
+		..\..\QtXlsx\src\xlsx\xlsxworksheet.h \
+		..\..\QtXlsx\src\xlsx\xlsxabstractsheet.h \
+		..\..\QtXlsx\src\xlsx\xlsxabstractooxmlfile.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QSharedPointer \
+		..\..\QtXlsx\src\xlsx\xlsxcell.h \
+		..\..\QtXlsx\src\xlsx\xlsxcellrange.h \
+		..\..\QtXlsx\src\xlsx\xlsxcellreference.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QMap \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QPointF \
+		lib\qtxlsx\include\QtXlsx\xlsxformat.h \
+		lib\qtxlsx\include\QtXlsx\xlsxcellrange.h \
+		lib\qtxlsx\include\QtXlsx\xlsxworksheet.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\QTreeWidget \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtreewidget.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtreeview.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qabstractitemview.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qabstractitemmodel.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qitemselectionmodel.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qabstractitemdelegate.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qstyleoption.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qabstractspinbox.h \
 		H:\Qt\Qt5.15.10-release\include\QtGui\qvalidator.h \
-		H:\Qt\Qt5.15.10-release\include\QtCore\qregularexpression.h \
-		H:\Qt\Qt5.15.10-release\include\QtGui\qicon.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qslider.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qabstractslider.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qstyle.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtabbar.h \
-		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtabwidget.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qrubberband.h \
-		H:\Qt\Qt5.15.10-release\include\QtCore\qabstractitemmodel.h
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtreewidgetitemiterator.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\QTreeWidgetItem \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QMetaType \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtranslator.h \
+		zoomselector.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\QComboBox \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qcombobox.h
 
 debug\mainwindow.obj: mainwindow.cpp H:\Qt\Qt5.15.10-release\include\QtGui\qpainter.h \
 		H:\Qt\Qt5.15.10-release\include\QtGui\qtguiglobal.h \
@@ -3991,6 +4153,9 @@ debug\mainwindow.obj: mainwindow.cpp H:\Qt\Qt5.15.10-release\include\QtGui\qpain
 		H:\Qt\Qt5.15.10-release\include\QtGui\qfontinfo.h \
 		H:\Qt\Qt5.15.10-release\include\QtGui\qfont.h \
 		H:\Qt\Qt5.15.10-release\include\QtGui\qfontmetrics.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\QDesktopServices \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qdesktopservices.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstandardpaths.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\QDebug \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qdebug.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qmap.h \
@@ -4156,7 +4321,6 @@ debug\mainwindow.obj: mainwindow.cpp H:\Qt\Qt5.15.10-release\include\QtGui\qpain
 		H:\Qt\Qt5.15.10-release\include\QtCore\qsocketnotifier.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qsortfilterproxymodel.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qstack.h \
-		H:\Qt\Qt5.15.10-release\include\QtCore\qstandardpaths.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qstate.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qstatemachine.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qstorageinfo.h \

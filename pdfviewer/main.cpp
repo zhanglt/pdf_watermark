@@ -1,4 +1,4 @@
-
+﻿
 /**
  * @file main.cpp
  * @brief PDF查看器应用程序主入口文件
@@ -23,7 +23,7 @@
 #include <QPdfView>
 #include <QUrl>
 #include <QStandardPaths>
-//#include "mainwindow.h"
+#include "mainwindow.h"
 #include "qtranslator.h"
 #include "zoomselector.h"
 

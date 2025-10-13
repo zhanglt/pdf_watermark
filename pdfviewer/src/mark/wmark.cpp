@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file wmark.cpp
  * @brief PDF水印处理核心实现文件
  * @author PDF工具集项目组
@@ -41,7 +41,7 @@ using namespace pdflib;
 #include "function.h"           // 通用功能函数
 #include "lib/pdflib.hpp"       // PDFlib库头文件
 //#include "E:/test/qt/win/QtWidgetsApplication1/lib/pdflib.hpp"
-#pragma comment(lib, "E:/test/qt/win/QtWidgetsApplication1/lib/pdflib.lib")  // 链接PDFlib库
+#pragma comment(lib, "E:/test/qt/pdfwidgets/pdfviewer/lib/pdflib.lib")  // 链接PDFlib库
 
 /*
 std::wstring String2WString(const std::string& s)
