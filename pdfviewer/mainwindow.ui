@@ -1837,6 +1837,10 @@ border-radius: 4px;</string>
    </property>
   </action>
   <action name="actionQuit">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/quit.png</normaloff>:/img/quit.png</iconset>
+   </property>
    <property name="text">
     <string>退出</string>
    </property>
@@ -1848,6 +1852,10 @@ border-radius: 4px;</string>
    </property>
   </action>
   <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/about.png</normaloff>:/img/about.png</iconset>
+   </property>
    <property name="text">
     <string>关于...</string>
    </property>
@@ -1921,16 +1929,28 @@ border-radius: 4px;</string>
    </property>
   </action>
   <action name="actionSetting">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/setting.png</normaloff>:/img/setting.png</iconset>
+   </property>
    <property name="text">
     <string>系统设置</string>
    </property>
   </action>
   <action name="actionMyshare">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/share.png</normaloff>:/img/share.png</iconset>
+   </property>
    <property name="text">
     <string>我的共享</string>
    </property>
   </action>
   <action name="action_Shareview">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/img/list.png</normaloff>:/img/list.png</iconset>
+   </property>
    <property name="text">
     <string>共享列表</string>
    </property>

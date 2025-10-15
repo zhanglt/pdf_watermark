@@ -19,5 +19,9 @@
         <file>img/systray-icon.png</file>
         <file>img/file.png</file>
         <file>img/folder.png</file>
+        <file>img/quit.png</file>
+        <file>img/list.png</file>
+        <file>img/setting.png</file>
+        <file>img/share.png</file>
     </qresource>
 </RCC>

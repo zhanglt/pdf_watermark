@@ -717,23 +717,27 @@ debug\qrc_res.cpp: src\res.qrc \
 		H:\Qt\Qt5.15.10-release\bin\rcc.exe \
 		src\text\credits.html \
 		src\text\gpl-3.0.txt \
-		src\img\icon.png \
-		src\img\windows.png \
-		src\img\send.png \
-		src\img\up.png \
-		src\img\down.png \
-		src\img\file.png \
-		src\img\resume.png \
-		src\img\osx.png \
-		src\img\linux.png \
 		src\img\clear.png \
-		src\img\cancel.png \
-		src\img\about.png \
-		src\img\systray-icon.png \
 		src\img\refresh.png \
 		src\img\pause.png \
+		src\img\setting.png \
+		src\img\folder.png \
+		src\img\quit.png \
+		src\img\up.png \
+		src\img\list.png \
+		src\img\icon.png \
+		src\img\file.png \
+		src\img\linux.png \
 		src\img\settings.png \
-		src\img\folder.png
+		src\img\osx.png \
+		src\img\down.png \
+		src\img\share.png \
+		src\img\about.png \
+		src\img\send.png \
+		src\img\systray-icon.png \
+		src\img\windows.png \
+		src\img\resume.png \
+		src\img\cancel.png
 	H:\Qt\Qt5.15.10-release\bin\rcc.exe -name res src\res.qrc -o debug\qrc_res.cpp
 
 compiler_moc_predefs_make_all: debug\moc_predefs.h
@@ -1935,6 +1939,8 @@ debug\moc_mainwindow.cpp: mainwindow.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qdeadlinetimer.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qelapsedtimer.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qrunnable.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\QSystemTrayIcon \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qsystemtrayicon.h \
 		H:\Qt\Qt5.15.10-release\include\QtPdf\QPdfDocument \
 		H:\Qt\Qt5.15.10-release\include\QtPdf\qpdfdocument.h \
 		H:\Qt\Qt5.15.10-release\include\QtPdf\qtpdfglobal.h \
@@ -2096,7 +2102,203 @@ debug\moc_mainwindow.cpp: mainwindow.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qrubberband.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtreewidgetitemiterator.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\QTreeWidgetItem \
+		src\model\transfertablemodel.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QAbstractTableModel \
+		src\transfer\transfer.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\QTcpSocket \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qtcpsocket.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qtnetworkglobal.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qtnetwork-config.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qabstractsocket.h \
+		src\model\device.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\QHostAddress \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qhostaddress.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\QMetaType \
+		src\model\transferinfo.h \
+		src\model\devicelistmodel.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QAbstractListModel \
+		src\transfer\devicebroadcaster.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QTimer \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtimer.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qbasictimer.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\QtNetwork \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\QtNetworkDepends \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QtCore \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QtCoreDepends \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qabstractanimation.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qabstracteventdispatcher.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qeventloop.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qabstractnativeeventfilter.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qabstractproxymodel.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qabstractstate.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qabstracttransition.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qanimationgroup.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qarraydataops.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qarraydatapointer.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qbitarray.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qbuffer.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qbytearraymatcher.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcache.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcalendar.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcborarray.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcborvalue.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qdatetime.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcborcommon.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\quuid.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcbormap.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcborstream.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcborstreamreader.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfloat16.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcborstreamwriter.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcollator.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcommandlineoption.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcommandlineparser.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcoreapplication.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qconcatenatetablesproxymodel.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcryptographichash.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qdiriterator.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qeasingcurve.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qendian.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qeventtransition.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qexception.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfactoryinterface.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfileselector.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfilesystemwatcher.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfinalstate.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfuture.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfutureinterface.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qresultstore.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfuturesynchronizer.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfuturewatcher.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qhistorystate.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qidentityproxymodel.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qisenum.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qjsonarray.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qjsonvalue.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qjsondocument.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qjsonobject.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qlibrary.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qlibraryinfo.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qversionnumber.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qlinkedlist.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qlockfile.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qmessageauthenticationcode.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qmetaobject.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qmimedata.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qmimedatabase.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qmimetype.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qobjectcleanuphandler.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qoperatingsystemversion.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qparallelanimationgroup.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qpauseanimation.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qplugin.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qpointer.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qpluginloader.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qprocess.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qpropertyanimation.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qvariantanimation.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qqueue.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qrandom.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qreadwritelock.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qresource.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsavefile.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qscopedvaluerollback.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qscopeguard.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsemaphore.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsequentialanimationgroup.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsettings.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsharedmemory.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsignalmapper.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsignaltransition.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsocketnotifier.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsortfilterproxymodel.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstack.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstandardpaths.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstate.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstatemachine.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstorageinfo.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstringlistmodel.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsystemsemaphore.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtemporarydir.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtemporaryfile.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtextboundaryfinder.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtextcodec.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qthreadstorage.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtimeline.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtimezone.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtranslator.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtransposeproxymodel.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtypetraits.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qwaitcondition.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QDeadlineTimer \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qwineventnotifier.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qxmlstream.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtcoreversion.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qabstractnetworkcache.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qnetworkrequest.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QSharedDataPointer \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QUrl \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qauthenticator.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qdnslookup.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qdtls.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qsslsocket.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qsslerror.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qsslcertificate.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qssl.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QFlags \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qhostinfo.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qhstspolicy.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qhttp2configuration.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qhttpmultipart.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QIODevice \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\QNetworkRequest \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qlocalserver.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qlocalsocket.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qnetworkaccessmanager.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\QSslConfiguration \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qsslconfiguration.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\QSslPreSharedKeyAuthenticator \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qsslpresharedkeyauthenticator.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qnetworkconfigmanager.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qnetworkconfiguration.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qnetworkcookie.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qnetworkcookiejar.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qnetworkdatagram.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qnetworkdiskcache.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qnetworkinterface.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qnetworkproxy.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qnetworkreply.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\QNetworkAccessManager \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qnetworksession.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qocspresponse.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qpassworddigestor.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QCryptographicHash \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qsctpserver.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qtcpserver.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qsctpsocket.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qsslcertificateextension.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qsslcipher.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qssldiffiehellmanparameters.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qsslellipticcurve.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QHash \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qsslkey.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qudpsocket.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qtnetworkversion.h \
+		src\transfer\transferserver.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\QTcpServer \
+		src\transfer\receiver.h \
+		src\transfer\pullsender.h \
+		src\share\sharedfilemanager.h \
+		H:\Qt\Qt5.15.10-release\include\QtSql\QSqlDatabase \
+		H:\Qt\Qt5.15.10-release\include\QtSql\qsqldatabase.h \
+		H:\Qt\Qt5.15.10-release\include\QtSql\qtsqlglobal.h \
+		H:\Qt\Qt5.15.10-release\include\QtSql\qtsql-config.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QJsonObject \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QJsonArray \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QReadWriteLock \
+		src\share\shareditem.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QDateTime \
+		src\share\shareconfig.h \
 		debug\moc_predefs.h \
 		H:\Qt\Qt5.15.10-release\bin\moc.exe
 	H:\Qt\Qt5.15.10-release\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include E:/test/qt/pdfwidgets/pdfviewer/debug/moc_predefs.h -IH:/Qt/Qt5.15.10-release/mkspecs/win32-msvc -IE:/test/qt/pdfwidgets/pdfviewer -IE:/test/qt/pdfwidgets/pdfviewer -IE:/test/qt/pdfwidgets/pdfviewer/lib/mupdf/include -IE:/test/qt/pdfwidgets/pdfviewer -IE:/test/qt/pdfwidgets/pdfviewer/lib/mupdf/lib/Release -IE:/test/qt/pdfwidgets/pdfviewer/lib/mupdf/lib/Release -IE:/test/qt/pdfwidgets/pdfviewer/lib/libxml2/include/libxml2 -IE:/test/qt/pdfwidgets/pdfviewer/lib/iconv/include -IE:/test/qt/pdfwidgets/pdfviewer/pdfviewer/lib/qtxlsx/include -IH:/Qt/Qt5.15.10-release/include -IH:/Qt/Qt5.15.10-release/include/QtPdfWidgets -IH:/Qt/Qt5.15.10-release/include/QtPrintSupport -IH:/Qt/Qt5.15.10-release/include/QtSvg -IH:/Qt/Qt5.15.10-release/include/QtWidgets -IH:/Qt/Qt5.15.10-release/include/QtPdf -IH:/Qt/Qt5.15.10-release/include/QtGui -IH:/Qt/Qt5.15.10-release/include/QtANGLE -IH:/Qt/Qt5.15.10-release/include/QtNetwork -IH:/Qt/Qt5.15.10-release/include/QtSql -IH:/Qt/Qt5.15.10-release/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\include" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt" mainwindow.h -o debug\moc_mainwindow.cpp
@@ -6084,6 +6286,8 @@ debug\main.obj: main.cpp H:\Qt\Qt5.15.10-release\include\QtWidgets\QApplication 
 		H:\Qt\Qt5.15.10-release\include\QtCore\qdeadlinetimer.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qelapsedtimer.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qrunnable.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\QSystemTrayIcon \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qsystemtrayicon.h \
 		H:\Qt\Qt5.15.10-release\include\QtPdf\QPdfDocument \
 		H:\Qt\Qt5.15.10-release\include\QtPdf\qpdfdocument.h \
 		H:\Qt\Qt5.15.10-release\include\QtPdf\qtpdfglobal.h \
@@ -6243,8 +6447,199 @@ debug\main.obj: main.cpp H:\Qt\Qt5.15.10-release\include\QtWidgets\QApplication 
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qrubberband.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtreewidgetitemiterator.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\QTreeWidgetItem \
+		src\model\transfertablemodel.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QAbstractTableModel \
+		src\transfer\transfer.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\QTcpSocket \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qtcpsocket.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qtnetworkglobal.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qtnetwork-config.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qabstractsocket.h \
+		src\model\device.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\QHostAddress \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qhostaddress.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\QMetaType \
+		src\model\transferinfo.h \
+		src\model\devicelistmodel.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QAbstractListModel \
+		src\transfer\devicebroadcaster.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QTimer \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtimer.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qbasictimer.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\QtNetwork \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\QtNetworkDepends \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QtCore \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QtCoreDepends \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qabstractanimation.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qabstracteventdispatcher.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qabstractnativeeventfilter.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qabstractproxymodel.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qabstractstate.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qabstracttransition.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qanimationgroup.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qarraydataops.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qarraydatapointer.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qbitarray.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qbuffer.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qbytearraymatcher.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcache.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcalendar.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcborarray.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcborvalue.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qdatetime.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcborcommon.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\quuid.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcbormap.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcborstream.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcborstreamreader.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfloat16.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcborstreamwriter.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcollator.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcommandlineoption.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcommandlineparser.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qconcatenatetablesproxymodel.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcryptographichash.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qdiriterator.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qeasingcurve.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qendian.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qeventtransition.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qexception.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfactoryinterface.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfileselector.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfilesystemwatcher.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfinalstate.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfuture.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfutureinterface.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qresultstore.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfuturesynchronizer.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfuturewatcher.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qhistorystate.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qidentityproxymodel.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qisenum.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qjsonarray.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qjsonvalue.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qjsondocument.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qjsonobject.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qlibrary.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qlibraryinfo.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qversionnumber.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qlinkedlist.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qlockfile.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qmessageauthenticationcode.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qmetaobject.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qmimedata.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qmimedatabase.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qmimetype.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qobjectcleanuphandler.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qoperatingsystemversion.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qparallelanimationgroup.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qpauseanimation.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qplugin.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qpointer.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qpluginloader.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qprocess.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qpropertyanimation.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qvariantanimation.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qqueue.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qrandom.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qreadwritelock.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qresource.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsavefile.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qscopedvaluerollback.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qscopeguard.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsemaphore.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsequentialanimationgroup.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsettings.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsharedmemory.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsignalmapper.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsignaltransition.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsocketnotifier.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsortfilterproxymodel.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstack.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstate.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstatemachine.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstorageinfo.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstringlistmodel.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsystemsemaphore.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtemporarydir.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtemporaryfile.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtextboundaryfinder.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtextcodec.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qthreadstorage.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtimeline.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtimezone.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qtranslator.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtransposeproxymodel.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtypetraits.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qwaitcondition.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QDeadlineTimer \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qwineventnotifier.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qxmlstream.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtcoreversion.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qabstractnetworkcache.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qnetworkrequest.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QSharedDataPointer \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qauthenticator.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qdnslookup.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qdtls.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qsslsocket.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qsslerror.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qsslcertificate.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qssl.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QFlags \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qhostinfo.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qhstspolicy.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qhttp2configuration.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qhttpmultipart.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QIODevice \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\QNetworkRequest \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qlocalserver.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qlocalsocket.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qnetworkaccessmanager.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\QSslConfiguration \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qsslconfiguration.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\QSslPreSharedKeyAuthenticator \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qsslpresharedkeyauthenticator.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qnetworkconfigmanager.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qnetworkconfiguration.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qnetworkcookie.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qnetworkcookiejar.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qnetworkdatagram.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qnetworkdiskcache.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qnetworkinterface.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qnetworkproxy.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qnetworkreply.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\QNetworkAccessManager \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qnetworksession.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qocspresponse.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qpassworddigestor.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QCryptographicHash \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qsctpserver.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qtcpserver.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qsctpsocket.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qsslcertificateextension.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qsslcipher.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qssldiffiehellmanparameters.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qsslellipticcurve.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QHash \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qsslkey.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qudpsocket.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qtnetworkversion.h \
+		src\transfer\transferserver.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\QTcpServer \
+		src\transfer\receiver.h \
+		src\transfer\pullsender.h \
+		src\share\sharedfilemanager.h \
+		H:\Qt\Qt5.15.10-release\include\QtSql\QSqlDatabase \
+		H:\Qt\Qt5.15.10-release\include\QtSql\qsqldatabase.h \
+		H:\Qt\Qt5.15.10-release\include\QtSql\qtsqlglobal.h \
+		H:\Qt\Qt5.15.10-release\include\QtSql\qtsql-config.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QJsonObject \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QJsonArray \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QReadWriteLock \
+		src\share\shareditem.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QDateTime \
+		src\share\shareconfig.h \
 		zoomselector.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\QComboBox \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qcombobox.h
@@ -6333,36 +6728,37 @@ debug\mainwindow.obj: mainwindow.cpp H:\Qt\Qt5.15.10-release\include\QtGui\qpain
 		H:\Qt\Qt5.15.10-release\include\QtGui\qfontinfo.h \
 		H:\Qt\Qt5.15.10-release\include\QtGui\qfont.h \
 		H:\Qt\Qt5.15.10-release\include\QtGui\qfontmetrics.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\QCloseEvent \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qevent.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qkeysequence.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qvariant.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qmap.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qdebug.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtextstream.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qlocale.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qset.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcontiguouscache.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qurl.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qurlquery.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfile.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfiledevice.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qvector2d.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qtouchdevice.h \
 		H:\Qt\Qt5.15.10-release\include\QtGui\QDesktopServices \
 		H:\Qt\Qt5.15.10-release\include\QtGui\qdesktopservices.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qstandardpaths.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\QDebug \
-		H:\Qt\Qt5.15.10-release\include\QtCore\qdebug.h \
-		H:\Qt\Qt5.15.10-release\include\QtCore\qmap.h \
-		H:\Qt\Qt5.15.10-release\include\QtCore\qtextstream.h \
-		H:\Qt\Qt5.15.10-release\include\QtCore\qlocale.h \
-		H:\Qt\Qt5.15.10-release\include\QtCore\qvariant.h \
-		H:\Qt\Qt5.15.10-release\include\QtCore\qset.h \
-		H:\Qt\Qt5.15.10-release\include\QtCore\qcontiguouscache.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\QFileDialog \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qfiledialog.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtwidgetsglobal.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtwidgets-config.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qdir.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qfileinfo.h \
-		H:\Qt\Qt5.15.10-release\include\QtCore\qfile.h \
-		H:\Qt\Qt5.15.10-release\include\QtCore\qfiledevice.h \
-		H:\Qt\Qt5.15.10-release\include\QtCore\qurl.h \
-		H:\Qt\Qt5.15.10-release\include\QtCore\qurlquery.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qdialog.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qwidget.h \
 		H:\Qt\Qt5.15.10-release\include\QtGui\qpalette.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qsizepolicy.h \
 		H:\Qt\Qt5.15.10-release\include\QtGui\qcursor.h \
-		H:\Qt\Qt5.15.10-release\include\QtGui\qkeysequence.h \
-		H:\Qt\Qt5.15.10-release\include\QtGui\qevent.h \
-		H:\Qt\Qt5.15.10-release\include\QtGui\qvector2d.h \
-		H:\Qt\Qt5.15.10-release\include\QtGui\qtouchdevice.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\QFutureWatcher \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qfuturewatcher.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qfuture.h \
@@ -6407,6 +6803,9 @@ debug\mainwindow.obj: mainwindow.cpp H:\Qt\Qt5.15.10-release\include\QtGui\qpain
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtabbar.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtabwidget.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qrubberband.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QTimer \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtimer.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qbasictimer.h \
 		H:\Qt\Qt5.15.10-release\include\QtConcurrent\QtConcurrent \
 		H:\Qt\Qt5.15.10-release\include\QtConcurrent\QtConcurrentDepends \
 		H:\Qt\Qt5.15.10-release\include\QtCore\QtCore \
@@ -6421,7 +6820,6 @@ debug\mainwindow.obj: mainwindow.cpp H:\Qt\Qt5.15.10-release\include\QtGui\qpain
 		H:\Qt\Qt5.15.10-release\include\QtCore\qanimationgroup.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qarraydataops.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qarraydatapointer.h \
-		H:\Qt\Qt5.15.10-release\include\QtCore\qbasictimer.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qbitarray.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qbuffer.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qbytearraymatcher.h \
@@ -6514,7 +6912,6 @@ debug\mainwindow.obj: mainwindow.cpp H:\Qt\Qt5.15.10-release\include\QtGui\qpain
 		H:\Qt\Qt5.15.10-release\include\QtCore\qthreadpool.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qthreadstorage.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qtimeline.h \
-		H:\Qt\Qt5.15.10-release\include\QtCore\qtimer.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qtimezone.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qtranslator.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qtransposeproxymodel.h \
@@ -6650,6 +7047,8 @@ debug\mainwindow.obj: mainwindow.cpp H:\Qt\Qt5.15.10-release\include\QtGui\qpain
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\QMainWindow \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qmainwindow.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\QThreadPool \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\QSystemTrayIcon \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qsystemtrayicon.h \
 		include\mark\watermarkThread.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\QRunnable \
 		H:\Qt\Qt5.15.10-release\include\QtCore\QVector \
@@ -6683,42 +7082,18 @@ debug\mainwindow.obj: mainwindow.cpp H:\Qt\Qt5.15.10-release\include\QtGui\qpain
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtreeview.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtreewidgetitemiterator.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\QTreeWidgetItem \
-		H:\Qt\Qt5.15.10-release\include\QtCore\QMetaType \
-		pageselector.h \
-		H:\Qt\Qt5.15.10-release\include\QtWidgets\qColordialog.h \
-		ui_mainwindow.h \
-		zoomselector.h \
-		H:\Qt\Qt5.15.10-release\include\QtWidgets\QComboBox \
-		H:\Qt\Qt5.15.10-release\include\QtWidgets\qcombobox.h \
-		H:\Qt\Qt5.15.10-release\include\QtPdfWidgets\QPdfView \
-		H:\Qt\Qt5.15.10-release\include\QtPdfWidgets\qpdfview.h \
-		H:\Qt\Qt5.15.10-release\include\QtPdfWidgets\qtpdfwidgetsglobal.h \
-		src\ui\settingsdialog.h \
-		H:\Qt\Qt5.15.10-release\include\QtWidgets\QDialog \
-		src\ui\sharemanagerdialog.h \
-		src\share\sharedfilemanager.h \
-		H:\Qt\Qt5.15.10-release\include\QtSql\QSqlDatabase \
-		H:\Qt\Qt5.15.10-release\include\QtSql\qsqldatabase.h \
-		H:\Qt\Qt5.15.10-release\include\QtSql\qtsqlglobal.h \
-		H:\Qt\Qt5.15.10-release\include\QtSql\qtsql-config.h \
-		H:\Qt\Qt5.15.10-release\include\QtCore\QJsonObject \
-		H:\Qt\Qt5.15.10-release\include\QtCore\QJsonArray \
-		H:\Qt\Qt5.15.10-release\include\QtCore\QTimer \
-		H:\Qt\Qt5.15.10-release\include\QtCore\QReadWriteLock \
-		H:\Qt\Qt5.15.10-release\include\QtNetwork\QHostAddress \
-		H:\Qt\Qt5.15.10-release\include\QtNetwork\qhostaddress.h \
-		H:\Qt\Qt5.15.10-release\include\QtNetwork\qtnetworkglobal.h \
-		H:\Qt\Qt5.15.10-release\include\QtNetwork\qtnetwork-config.h \
-		H:\Qt\Qt5.15.10-release\include\QtNetwork\qabstractsocket.h \
-		src\share\shareditem.h \
-		H:\Qt\Qt5.15.10-release\include\QtCore\QDateTime \
-		src\share\shareconfig.h \
-		src\model\device.h \
-		src\ui\browsesharedialog.h \
-		src\transfer\pullreceiver.h \
+		src\model\transfertablemodel.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QAbstractTableModel \
 		src\transfer\transfer.h \
 		H:\Qt\Qt5.15.10-release\include\QtNetwork\QTcpSocket \
 		H:\Qt\Qt5.15.10-release\include\QtNetwork\qtcpsocket.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qtnetworkglobal.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qtnetwork-config.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qabstractsocket.h \
+		src\model\device.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\QHostAddress \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qhostaddress.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QMetaType \
 		src\model\transferinfo.h \
 		src\model\devicelistmodel.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\QAbstractListModel \
@@ -6774,7 +7149,37 @@ debug\mainwindow.obj: mainwindow.cpp H:\Qt\Qt5.15.10-release\include\QtGui\qpain
 		H:\Qt\Qt5.15.10-release\include\QtCore\QHash \
 		H:\Qt\Qt5.15.10-release\include\QtNetwork\qsslkey.h \
 		H:\Qt\Qt5.15.10-release\include\QtNetwork\qudpsocket.h \
-		H:\Qt\Qt5.15.10-release\include\QtNetwork\qtnetworkversion.h
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\qtnetworkversion.h \
+		src\transfer\transferserver.h \
+		H:\Qt\Qt5.15.10-release\include\QtNetwork\QTcpServer \
+		src\transfer\receiver.h \
+		src\transfer\pullsender.h \
+		src\share\sharedfilemanager.h \
+		H:\Qt\Qt5.15.10-release\include\QtSql\QSqlDatabase \
+		H:\Qt\Qt5.15.10-release\include\QtSql\qsqldatabase.h \
+		H:\Qt\Qt5.15.10-release\include\QtSql\qtsqlglobal.h \
+		H:\Qt\Qt5.15.10-release\include\QtSql\qtsql-config.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QJsonObject \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QJsonArray \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QReadWriteLock \
+		src\share\shareditem.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QDateTime \
+		src\share\shareconfig.h \
+		pageselector.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qColordialog.h \
+		ui_mainwindow.h \
+		zoomselector.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\QComboBox \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qcombobox.h \
+		H:\Qt\Qt5.15.10-release\include\QtPdfWidgets\QPdfView \
+		H:\Qt\Qt5.15.10-release\include\QtPdfWidgets\qpdfview.h \
+		H:\Qt\Qt5.15.10-release\include\QtPdfWidgets\qtpdfwidgetsglobal.h \
+		src\ui\settingsdialog.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\QDialog \
+		src\ui\sharemanagerdialog.h \
+		src\ui\browsesharedialog.h \
+		src\transfer\pullreceiver.h \
+		src\ui\settings.h
 
 debug\pageselector.obj: pageselector.cpp pageselector.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\QWidget \

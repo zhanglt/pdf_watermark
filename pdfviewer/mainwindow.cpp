@@ -19,6 +19,7 @@
 #pragma execution_character_set("utf-8")
 
 #include <windows.h>
+#include <QCloseEvent>
 #include <QDesktopServices>
 #include <QDebug>
 #include <QFileDialog>
@@ -30,6 +31,7 @@
 #include <QProgressDialog>
 #include <QStandardItemModel>
 #include <QTableWidget>
+#include <QTimer>
 #include <QtConcurrent/QtConcurrent>
 #include <QtMath>
 #include <QtSvg/QSvgGenerator>
@@ -84,8 +86,13 @@ MainWindow::MainWindow(QWidget *parent)
       m_title(new QLabel(this))              // 创建标题标签
 {
   ui->setupUi(this);  // 初始化用户界面
- setupActions();         // 创建所有QAction对象
- setupSystrayIcon();
+
+  // 设置应用程序不在最后一个窗口关闭时退出
+  // 这样即使主窗口隐藏到系统托盘，托盘图标仍然保留
+  QApplication::setQuitOnLastWindowClosed(false);
+
+  setupActions();         // 创建所有QAction对象
+  setupSystrayIcon();
 
 
 
@@ -222,8 +229,92 @@ MainWindow::MainWindow(QWidget *parent)
  * @brief MainWindow析构函数
  * 清理UI资源和其他动态分配的内存
  */
-MainWindow::~MainWindow() { 
-  delete ui; 
+MainWindow::~MainWindow() {
+  delete ui;
+}
+
+/**
+ * @brief 重写关闭事件处理函数
+ * @param event 关闭事件对象
+ *
+ * 当用户点击窗口右上角的关闭按钮时：
+ * - 如果系统托盘可用，则隐藏窗口到系统托盘，而不是真正关闭应用程序
+ * - 如果系统托盘不可用，则正常关闭应用程序
+ *
+ * @note 用户可以通过系统托盘菜单的"退出"选项来真正退出程序
+ */
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    // 检查系统托盘是否可用
+    if (mSystrayIcon && mSystrayIcon->isVisible()) {
+        // 隐藏窗口到系统托盘
+        setMainWindowVisibility(false);
+
+        // 忽略关闭事件，防止应用程序退出
+        event->ignore();
+
+        // 第一次最小化时显示提示信息（可选）
+        static bool firstTime = true;
+        if (firstTime) {
+            mSystrayIcon->showMessage(
+                tr("程序最小化"),
+                tr("程序已最小化到系统托盘，点击托盘图标可恢复窗口"),
+                QSystemTrayIcon::Information,
+                2000  // 提示显示2秒
+            );
+            firstTime = false;
+        }
+    } else {
+        // 系统托盘不可用，正常关闭应用程序
+        event->accept();
+    }
+}
+
+/**
+ * @brief 重写窗口状态改变事件处理函数
+ * @param event 事件对象
+ *
+ * 当用户点击窗口右上角的最小化按钮时：
+ * - 如果系统托盘可用，则隐藏窗口到系统托盘，并隐藏任务栏图标
+ * - 如果系统托盘不可用，则正常最小化到任务栏
+ *
+ * @note 这个函数捕获所有窗口状态变化事件，包括最小化、最大化、正常化等
+ */
+void MainWindow::changeEvent(QEvent *event)
+{
+    // 检查是否是窗口状态改变事件
+    if (event->type() == QEvent::WindowStateChange) {
+        // 检查窗口是否被最小化
+        if (windowState() & Qt::WindowMinimized) {
+            // 检查系统托盘是否可用
+            if (mSystrayIcon && mSystrayIcon->isVisible()) {
+                // 延迟隐藏窗口，确保最小化动画完成
+                QTimer::singleShot(0, this, [this]() {
+                    // 隐藏窗口到系统托盘
+                    hide();
+
+                    // 显示系统托盘提示消息（可选，仅第一次显示）
+                    static bool firstMinimize = true;
+                    if (firstMinimize) {
+                        mSystrayIcon->showMessage(
+                            tr("最小化到托盘"),
+                            tr("程序已最小化到系统托盘，双击托盘图标可恢复窗口"),
+                            QSystemTrayIcon::Information,
+                            2000  // 提示显示2秒
+                        );
+                        firstMinimize = false;
+                    }
+                });
+
+                // 事件已处理
+                event->ignore();
+                return;
+            }
+        }
+    }
+
+    // 调用父类的事件处理函数
+    QMainWindow::changeEvent(event);
 }
 
 /**
@@ -308,17 +399,23 @@ void MainWindow::on_actionQuit_triggered() {
 
 /**
  * @brief 显示关于应用程序的信息
+ *
+ * 注意：使用 nullptr 作为父窗口，避免在主窗口隐藏到系统托盘时
+ * 对话框关闭后自动恢复主窗口的问题
  */
 void MainWindow::on_actionAbout_triggered() {
-  QMessageBox::about(this, tr("关于pdf处理"),
+  QMessageBox::about(nullptr, tr("关于pdf处理"),
                      tr("数科-泛生态业务线工具-仅限内部使用"));
 }
 
 /**
  * @brief 显示关于Qt的信息
+ *
+ * 注意：使用 nullptr 作为父窗口，避免在主窗口隐藏到系统托盘时
+ * 对话框关闭后自动恢复主窗口的问题
  */
-void MainWindow::on_actionAbout_Qt_triggered() { 
-  QMessageBox::aboutQt(this); 
+void MainWindow::on_actionAbout_Qt_triggered() {
+  QMessageBox::aboutQt(nullptr);
 }
 
 /**
@@ -1663,34 +1760,53 @@ void MainWindow::setupSystrayIcon()
     //mSystrayMenu->addAction(mSendFolderAction);
     //mSystrayMenu->addSeparator();
     mSystrayMenu->addAction(mAboutAction);
-    mSystrayMenu->addAction(mAboutQtAction);
+    //mSystrayMenu->addAction(mAboutQtAction);
     mSystrayMenu->addSeparator();
     mSystrayMenu->addAction(mQuitAction);
 
     mSystrayIcon = new QSystemTrayIcon(QIcon(":/img/systray-icon.png"), this);
     mSystrayIcon->setToolTip(PROGRAM_NAME);
     mSystrayIcon->setContextMenu(mSystrayMenu);
+
+    // 添加双击托盘图标恢复窗口的功能
+    connect(mSystrayIcon, &QSystemTrayIcon::activated, this, [this](QSystemTrayIcon::ActivationReason reason) {
+        if (reason == QSystemTrayIcon::DoubleClick) {
+            // 双击托盘图标时恢复主窗口
+            setMainWindowVisibility(true);
+        }
+    });
+
     mSystrayIcon->show();
 }
 void MainWindow::setupActions()
 {
-    mShowMainWindowAction = new QAction(tr("显示主窗口"), this);
+    // 显示主窗口动作
+    mShowMainWindowAction = new QAction(QIcon(":/img/windows.png"),tr("显示主窗口"), this);
     connect(mShowMainWindowAction, &QAction::triggered, this, &MainWindow::onShowMainWindowTriggered);
+
+    // 关于动作（带图标）
+    mAboutAction = new QAction(QIcon(":/img/about.png"), tr("关于"), this);
+    mAboutAction->setMenuRole(QAction::AboutRole);
+    connect(mAboutAction, &QAction::triggered, this, &MainWindow::on_actionAbout_triggered);
+
+    // 关于Qt动作
+    //mAboutQtAction = new QAction(tr("关于Qt"), this);
+    //mAboutQtAction->setMenuRole(QAction::AboutQtRole);
+    //connect(mAboutQtAction, &QAction::triggered, this, &MainWindow::on_actionAbout_Qt_triggered);
+
+    // 退出动作（带图标）
+    mQuitAction = new QAction(QIcon(":/img/quit.png"), tr("退出"), this);
+    connect(mQuitAction, &QAction::triggered, this, &MainWindow::on_actionQuit_triggered);
+
+    //mSettingsAction = new QAction(QIcon(":/img/settings.png"), tr("设置"), this);
+    //connect(mSettingsAction, &QAction::triggered, this, &MainWindow::onSettingsActionTriggered);
+
   /*
     mSendFilesAction = new QAction(QIcon(":/img/file.png"), tr("发送文件..."), this);
     connect(mSendFilesAction, &QAction::triggered, this, &MainWindow::onSendFilesActionTriggered);
     mSendFolderAction = new QAction(QIcon(":/img/folder.png"), tr("发送文件夹..."), this);
     connect(mSendFolderAction, &QAction::triggered, this, &MainWindow::onSendFolderActionTriggered);
-    mSettingsAction = new QAction(QIcon(":/img/settings.png"), tr("设置"), this);
-    connect(mSettingsAction, &QAction::triggered, this, &MainWindow::onSettingsActionTriggered);
-    mAboutAction = new QAction(QIcon(":/img/about.png"), tr("关于"), this);
-    mAboutAction->setMenuRole(QAction::AboutRole);
-    connect(mAboutAction, &QAction::triggered, this, &MainWindow::onAboutActionTriggered);
-    mAboutQtAction = new QAction(tr("关于Qt"), this);
-    mAboutQtAction->setMenuRole(QAction::AboutQtRole);
-    connect(mAboutQtAction, &QAction::triggered, QApplication::instance(), &QApplication::aboutQt);
-    mQuitAction = new QAction(tr("退出"), this);
-    connect(mQuitAction, &QAction::triggered, this, &MainWindow::quitApp);
+
 */
 }
 /**
@@ -1730,7 +1846,59 @@ void MainWindow::onShowMainWindowTriggered()
     setMainWindowVisibility(true);
 }
 
+/**
+ * @brief 设置按钮点击
+ *
+ * 打开设置对话框，用户可以修改：
+ * - 设备名称
+ * - 广播端口和传输端口
+ * - 下载目录
+ * - 缓冲区大小
+ * - 是否覆盖已存在的文件
+ */
+void MainWindow::onSettingsActionTriggered()
+{
+    SettingsDialog dialog;
+
+    // 连接传输端口更改信号，以便在端口改变时重启服务
+    connect(&dialog, &SettingsDialog::transferPortChanged,
+            this, &MainWindow::onTransferPortChanged);
+
+    dialog.exec();
+}
 
 
+/**
+ * @brief 传输端口更改时重启TransferServer
+ * @param newPort 新的传输端口
+ *
+ * 当设置对话框中的传输端口被修改时：
+ * 1. 关闭当前的TransferServer
+ * 2. 使用新端口重新启动监听
+ * 3. 如果启动失败，显示错误消息
+ */
+void MainWindow::onTransferPortChanged(int newPort)
+{
+    Q_UNUSED(newPort)  // 端口已经保存在Settings中了
+
+    if (!mTransServer) {
+        return;
+    }
+
+    // 关闭当前的传输服务器
+    mTransServer->close();
+
+    // 尝试使用新端口重新启动监听
+    if (!mTransServer->listen()) {
+        QMessageBox::critical(this, tr("错误"),
+            tr("无法重启文件传输服务器。\n"
+               "端口 %1 可能被其他程序占用。\n"
+               "请选择其他端口后重试。").arg(newPort));
+    } else {
+        // 重启成功，显示提示信息
+        QMessageBox::information(this, tr("提示"),
+            tr("文件传输服务已在端口 %1 上重新启动。").arg(newPort));
+    }
+}
 
 

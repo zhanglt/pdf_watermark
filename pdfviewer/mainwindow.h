@@ -13,6 +13,12 @@
 #include "include/mark/watermarkThreadSingle.h"
 #include "include/pdf2image/pdf2ImageThreadSingle.h"
 #include "include/search/SearchThread.h"
+
+#include "src/model/transfertablemodel.h"
+#include "src/model/devicelistmodel.h"
+#include "src/transfer/devicebroadcaster.h"
+#include "src/transfer/transferserver.h"
+
 #include <QMetaType>
 Q_DECLARE_LOGGING_CATEGORY(lcExample)
 QT_BEGIN_NAMESPACE
@@ -138,6 +144,12 @@ class MainWindow : public QMainWindow {
 signals:
   void Finished();
 
+ protected:
+  /** @brief 重写关闭事件，拦截窗口关闭操作 */
+  void closeEvent(QCloseEvent *event) override;
+  /** @brief 重写窗口状态改变事件，拦截最小化操作 */
+  void changeEvent(QEvent *event) override;
+
  private:
   Ui::MainWindow *ui;
   // === UI初始化方法 ===
@@ -147,8 +159,17 @@ signals:
   void setupSystrayIcon();
 
 
+  /** @brief 打开设置对话框 */
+  void onSettingsActionTriggered();
 
-
+  /**
+   * @brief 传输端口更改时重启TransferServer
+   * @param newPort 新的传输端口
+   *
+   * 当设置对话框中的传输端口被修改时调用，
+   * 关闭当前的TransferServer并使用新端口重新启动监听
+   */
+  void onTransferPortChanged(int newPort);
 
   QSystemTrayIcon* mSystrayIcon;               ///< 系统托盘图标
   QMenu* mSystrayMenu;                         ///< 系统托盘右键菜单
@@ -157,16 +178,14 @@ signals:
   //TransferTableModel* mReceiverModel;          ///< 接收列表数据模型
   //DeviceListModel* mDeviceModel;               ///< 设备列表数据模型（局域网内发现的设备）
 
-  //DeviceBroadcaster* mBroadcaster;             ///< 设备广播器，用于发现和通告设备
- // TransferServer* mTransServer;                ///< 传输服务器，监听接收请求
+  DeviceBroadcaster* mBroadcaster;             ///< 设备广播器，用于发现和通告设备
+  TransferServer* mTransServer;                ///< 传输服务器，监听接收请求
 
   // === 主菜单和工具栏动作 ===
   QAction* mShowMainWindowAction;              ///< 显示主窗口动作
-  QAction* mSendFilesAction;                   ///< 发送文件动作
-  QAction* mSendFolderAction;                  ///< 发送文件夹动作
   QAction* mSettingsAction;                    ///< 设置动作
   QAction* mAboutAction;                       ///< 关于动作
-  QAction* mAboutQtAction;                     ///< 关于Qt动作
+  //QAction* mAboutQtAction;                     ///< 关于Qt动作
   QAction* mQuitAction;                        ///< 退出动作
 
 

@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../res.qrc">
-    <normaloff>:/img/icon.png</normaloff>:/img/icon.png</iconset>
+    <normaloff>:/img/list.png</normaloff>:/img/list.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -143,7 +143,7 @@
         <string>下载选中项</string>
        </property>
        <property name="icon">
-        <iconset resource="../res.qrc">
+        <iconset>
          <normaloff>:/img/download.png</normaloff>:/img/download.png</iconset>
        </property>
       </widget>
