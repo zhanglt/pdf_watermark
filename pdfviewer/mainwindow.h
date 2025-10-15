@@ -1,11 +1,11 @@
-#ifndef MAINWINDOW_H
+﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QLabel>
 #include <QLoggingCategory>
 #include <QMainWindow>
 #include <QThreadPool>
-
+#include <QSystemTrayIcon>
 #include "QPdfDocument"
 #include "function.h"
 #include "include/mark/multiWatermarkThreadSingle.h "
@@ -127,11 +127,53 @@ class MainWindow : public QMainWindow {
 
   void on_lineEditInput_Search_Key_returnPressed();
 
+  void on_actionSetting_triggered();
+
+  void on_actionMyshare_triggered();
+
+  void on_action_Shareview_triggered();
+  void setMainWindowVisibility(bool visible);
+  void onShowMainWindowTriggered();
+
 signals:
   void Finished();
 
  private:
   Ui::MainWindow *ui;
+  // === UI初始化方法 ===
+  /** @brief 创建所有QAction对象并连接信号槽 */
+  void setupActions();
+  /** @brief 设置系统托盘图标和菜单 */
+  void setupSystrayIcon();
+
+
+
+
+
+  QSystemTrayIcon* mSystrayIcon;               ///< 系统托盘图标
+  QMenu* mSystrayMenu;                         ///< 系统托盘右键菜单
+
+  //TransferTableModel* mSenderModel;            ///< 发送列表数据模型
+  //TransferTableModel* mReceiverModel;          ///< 接收列表数据模型
+  //DeviceListModel* mDeviceModel;               ///< 设备列表数据模型（局域网内发现的设备）
+
+  //DeviceBroadcaster* mBroadcaster;             ///< 设备广播器，用于发现和通告设备
+ // TransferServer* mTransServer;                ///< 传输服务器，监听接收请求
+
+  // === 主菜单和工具栏动作 ===
+  QAction* mShowMainWindowAction;              ///< 显示主窗口动作
+  QAction* mSendFilesAction;                   ///< 发送文件动作
+  QAction* mSendFolderAction;                  ///< 发送文件夹动作
+  QAction* mSettingsAction;                    ///< 设置动作
+  QAction* mAboutAction;                       ///< 关于动作
+  QAction* mAboutQtAction;                     ///< 关于Qt动作
+  QAction* mQuitAction;                        ///< 退出动作
+
+
+
+
+
+
 
   PageSelector *m_pageSelector;
 

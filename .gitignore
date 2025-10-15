@@ -1,4 +1,5 @@
 .claude
+CLAUDE.md
 pdfviewer/release
 pdfviewer/debug
 pdfviewer/.qtc_clangd
@@ -7,9 +8,9 @@ pdfviewer/%SystemDrive%
 pdfviewer/lib/mupdf
 pdfviewer/lib/pdflib.dll
 pdfviewer/lib/pdflib.lib
-
+shares.db
 .vs
-
+ui_*.h
 
 
 

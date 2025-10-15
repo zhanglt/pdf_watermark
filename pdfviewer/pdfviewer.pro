@@ -6,7 +6,7 @@ QMAKE_CXXFLAGS += /utf-8
 CONFIG += utf8_source
 
 
-QT += core gui widgets pdfwidgets printsupport svg
+QT += core gui widgets pdfwidgets printsupport svg network sql
 QMAKE_CXXFLAGS_RELEASE += -O2       #开启深度优化O3
 QMAKE_GENERATOR = ninja
 SOURCES += \
@@ -39,22 +39,34 @@ SOURCES += \
     src/mark/watermarkThread.cpp \
     src/mark/watermarkThreadSingle.cpp \
     src/mark/wmark.cpp \
+    src/model/device.cpp \
+    src/model/devicelistmodel.cpp \
+    src/model/transferinfo.cpp \
+    src/model/transfertablemodel.cpp \
     src/pdf2image/pdf2ImageThreadSingle.cpp \
     src/search/SearchThread.cpp \
+    src/share/sharedfilemanager.cpp \
     src/slider/CustomSlider.cpp \
     src/textedit/CustomTextEdit.cpp \
+    src/transfer/devicebroadcaster.cpp \
+    src/transfer/pullreceiver.cpp \
+    src/transfer/pullsender.cpp \
+    src/transfer/receiver.cpp \
+    src/transfer/sender.cpp \
+    src/transfer/transfer.cpp \
+    src/transfer/transferserver.cpp \
+    src/ui/aboutdialog.cpp \
+    src/ui/browsesharedialog.cpp \
+    src/ui/receiverselectordialog.cpp \
+    src/ui/settings.cpp \
+    src/ui/settingsdialog.cpp \
+    src/ui/sharemanagerdialog.cpp \
+    src/ui/util.cpp \
     zoomselector.cpp
 
 HEADERS += \
     function.h \
-    include/FileDetector.h \
-    include/FormatConverter.h \
-    include/FileSystemUtils.h \
-    include/GeometryUtils.h \
-    include/PdfOperations.h \
     include/QProgressIndicator.h \
-    include/StringConverter.h \
-    include/WatermarkProcessor.h \
     include/function/FileDetector.h \
     include/function/FileSystemUtils.h \
     include/function/FormatConverter.h \
@@ -81,13 +93,40 @@ HEADERS += \
     src/controllers/PdfSplitMergeController.h \
     src/controllers/PdfViewerController.h \
     src/controllers/WatermarkController.h \
+    src/model/device.h \
+    src/model/devicelistmodel.h \
+    src/model/transferinfo.h \
+    src/model/transfertablemodel.h \
+    src/share/shareconfig.h \
+    src/share/sharedfilemanager.h \
+    src/share/shareditem.h \
+    src/transfer/devicebroadcaster.h \
+    src/transfer/pullreceiver.h \
+    src/transfer/pullsender.h \
+    src/transfer/receiver.h \
+    src/transfer/sender.h \
+    src/transfer/transfer.h \
+    src/transfer/transferserver.h \
+    src/ui/aboutdialog.h \
+    src/ui/browsesharedialog.h \
+    src/ui/receiverselectordialog.h \
+    src/ui/settings.h \
+    src/ui/settingsdialog.h \
+    src/ui/sharemanagerdialog.h \
+    src/ui/util.h \
     zoomselector.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    src/ui/aboutdialog.ui \
+    src/ui/browsesharedialog.ui \
+    src/ui/receiverselectordialog.ui \
+    src/ui/settingsdialog.ui \
+    src/ui/sharemanagerdialog.ui
 
 RESOURCES += \
-    resources.qrc
+    resources.qrc \
+    src/res.qrc
 
 target.path = $$[QT_INSTALL_EXAMPLES]/pdfwidgets/pdfviewer
 INSTALLS += target

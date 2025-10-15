@@ -47,6 +47,9 @@ public:
     QAction *actionPrevious_Page;
     QAction *actionNext_Page;
     QAction *actionContinuous;
+    QAction *actionSetting;
+    QAction *actionMyshare;
+    QAction *action_Shareview;
     QWidget *centralWidget;
     QGridLayout *gridLayout_2;
     QWidget *widget;
@@ -137,6 +140,7 @@ public:
     QMenu *menuFile;
     QMenu *menuHelp;
     QMenu *menuView;
+    QMenu *menuTool;
     QToolBar *mainToolBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -180,6 +184,12 @@ public:
         actionContinuous = new QAction(MainWindow);
         actionContinuous->setObjectName(QString::fromUtf8("actionContinuous"));
         actionContinuous->setCheckable(true);
+        actionSetting = new QAction(MainWindow);
+        actionSetting->setObjectName(QString::fromUtf8("actionSetting"));
+        actionMyshare = new QAction(MainWindow);
+        actionMyshare->setObjectName(QString::fromUtf8("actionMyshare"));
+        action_Shareview = new QAction(MainWindow);
+        action_Shareview->setObjectName(QString::fromUtf8("action_Shareview"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         gridLayout_2 = new QGridLayout(centralWidget);
@@ -700,6 +710,8 @@ public:
         menuHelp->setObjectName(QString::fromUtf8("menuHelp"));
         menuView = new QMenu(menuBar);
         menuView->setObjectName(QString::fromUtf8("menuView"));
+        menuTool = new QMenu(menuBar);
+        menuTool->setObjectName(QString::fromUtf8("menuTool"));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -713,6 +725,7 @@ public:
         menuBar->addAction(menuFile->menuAction());
         menuBar->addAction(menuView->menuAction());
         menuBar->addAction(menuHelp->menuAction());
+        menuBar->addAction(menuTool->menuAction());
         menuFile->addAction(actionOpen);
         menuFile->addAction(actionQuit);
         menuHelp->addAction(actionAbout);
@@ -722,6 +735,9 @@ public:
         menuView->addAction(actionNext_Page);
         menuView->addSeparator();
         menuView->addAction(actionContinuous);
+        menuTool->addAction(actionMyshare);
+        menuTool->addAction(action_Shareview);
+        menuTool->addAction(actionSetting);
         mainToolBar->addAction(actionOpen);
         mainToolBar->addAction(actionZoom_Out);
         mainToolBar->addAction(actionZoom_In);
@@ -785,6 +801,9 @@ public:
 #if QT_CONFIG(tooltip)
         actionContinuous->setToolTip(QCoreApplication::translate("MainWindow", "\346\273\232\345\212\250\346\230\276\347\244\272", nullptr));
 #endif // QT_CONFIG(tooltip)
+        actionSetting->setText(QCoreApplication::translate("MainWindow", "\347\263\273\347\273\237\350\256\276\347\275\256", nullptr));
+        actionMyshare->setText(QCoreApplication::translate("MainWindow", "\346\210\221\347\232\204\345\205\261\344\272\253", nullptr));
+        action_Shareview->setText(QCoreApplication::translate("MainWindow", "\345\205\261\344\272\253\345\210\227\350\241\250", nullptr));
         btnSelectOutput->setText(QCoreApplication::translate("MainWindow", "\351\200\211\346\213\251\347\233\256\345\275\225", nullptr));
         cBoxFont->setItemText(0, QCoreApplication::translate("MainWindow", "\346\226\260\345\256\213\344\275\223", nullptr));
         cBoxFont->setItemText(1, QCoreApplication::translate("MainWindow", "\346\245\267\344\275\223", nullptr));
@@ -917,6 +936,7 @@ public:
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "\346\226\207\344\273\266", nullptr));
         menuHelp->setTitle(QCoreApplication::translate("MainWindow", "\345\270\256\345\212\251", nullptr));
         menuView->setTitle(QCoreApplication::translate("MainWindow", "\350\247\206\345\233\276", nullptr));
+        menuTool->setTitle(QCoreApplication::translate("MainWindow", "\345\267\245\345\205\267", nullptr));
     } // retranslateUi
 
 };

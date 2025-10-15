@@ -301,10 +301,13 @@ Makefile: pdfviewer.pro H:\Qt\Qt5.15.10-release\mkspecs\win32-msvc\qmake.conf H:
 		H:\Qt\Qt5.15.10-release\lib\Qt5Widgets.prl \
 		H:\Qt\Qt5.15.10-release\lib\Qt5Pdf.prl \
 		H:\Qt\Qt5.15.10-release\lib\Qt5Gui.prl \
+		H:\Qt\Qt5.15.10-release\lib\Qt5Network.prl \
+		H:\Qt\Qt5.15.10-release\lib\Qt5Sql.prl \
 		H:\Qt\Qt5.15.10-release\lib\Qt5Core.prl \
 		H:\Qt\Qt5.15.10-release\lib\qtmain.prl \
 		H:\Qt\Qt5.15.10-release\mkspecs\features\build_pass.prf \
 		resources.qrc \
+		src\res.qrc \
 		lib\qtxlsx\lib\debug\Qt5Xlsxd.prl \
 		H:\Qt\Qt5.15.10-release\lib\Qt5PdfWidgetsd.prl \
 		H:\Qt\Qt5.15.10-release\lib\Qt5PrintSupportd.prl \
@@ -312,6 +315,8 @@ Makefile: pdfviewer.pro H:\Qt\Qt5.15.10-release\mkspecs\win32-msvc\qmake.conf H:
 		H:\Qt\Qt5.15.10-release\lib\Qt5Widgetsd.prl \
 		H:\Qt\Qt5.15.10-release\lib\Qt5Pdfd.prl \
 		H:\Qt\Qt5.15.10-release\lib\Qt5Guid.prl \
+		H:\Qt\Qt5.15.10-release\lib\Qt5Networkd.prl \
+		H:\Qt\Qt5.15.10-release\lib\Qt5Sqld.prl \
 		H:\Qt\Qt5.15.10-release\lib\Qt5Cored.prl \
 		H:\Qt\Qt5.15.10-release\lib\qtmaind.prl
 	$(QMAKE) -o Makefile pdfviewer.pro -spec win32-msvc "CONFIG+=release" "CONFIG+=qtquickcompiler"
@@ -532,10 +537,13 @@ H:\Qt\Qt5.15.10-release\lib\Qt5Svg.prl:
 H:\Qt\Qt5.15.10-release\lib\Qt5Widgets.prl:
 H:\Qt\Qt5.15.10-release\lib\Qt5Pdf.prl:
 H:\Qt\Qt5.15.10-release\lib\Qt5Gui.prl:
+H:\Qt\Qt5.15.10-release\lib\Qt5Network.prl:
+H:\Qt\Qt5.15.10-release\lib\Qt5Sql.prl:
 H:\Qt\Qt5.15.10-release\lib\Qt5Core.prl:
 H:\Qt\Qt5.15.10-release\lib\qtmain.prl:
 H:\Qt\Qt5.15.10-release\mkspecs\features\build_pass.prf:
 resources.qrc:
+src\res.qrc:
 lib\qtxlsx\lib\debug\Qt5Xlsxd.prl:
 H:\Qt\Qt5.15.10-release\lib\Qt5PdfWidgetsd.prl:
 H:\Qt\Qt5.15.10-release\lib\Qt5PrintSupportd.prl:
@@ -543,6 +551,8 @@ H:\Qt\Qt5.15.10-release\lib\Qt5Svgd.prl:
 H:\Qt\Qt5.15.10-release\lib\Qt5Widgetsd.prl:
 H:\Qt\Qt5.15.10-release\lib\Qt5Pdfd.prl:
 H:\Qt\Qt5.15.10-release\lib\Qt5Guid.prl:
+H:\Qt\Qt5.15.10-release\lib\Qt5Networkd.prl:
+H:\Qt\Qt5.15.10-release\lib\Qt5Sqld.prl:
 H:\Qt\Qt5.15.10-release\lib\Qt5Cored.prl:
 H:\Qt\Qt5.15.10-release\lib\qtmaind.prl:
 qmake: FORCE

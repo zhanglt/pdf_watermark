@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file mainwindow.cpp
  * @brief PDF工具主窗口类实现文件
  * 
@@ -43,6 +43,12 @@
 #include "qColordialog.h"
 #include "ui_mainwindow.h"
 #include "zoomselector.h"
+#include "src/ui/settingsdialog.h"
+#include "src/ui/sharemanagerdialog.h"
+#include "src/ui/browsesharedialog.h"
+#include "src/model/devicelistmodel.h"
+#include "src/transfer/devicebroadcaster.h"
+#include "src/ui/settings.h"
 // 全局变量声明
 QWidget *horizontalLayoutWidget;  // 水平布局容器组件
 QHBoxLayout *horizontalLayout;    // 水平布局管理器
@@ -78,6 +84,9 @@ MainWindow::MainWindow(QWidget *parent)
       m_title(new QLabel(this))              // 创建标题标签
 {
   ui->setupUi(this);  // 初始化用户界面
+ setupActions();         // 创建所有QAction对象
+ setupSystrayIcon();
+
 
 
 
@@ -1554,3 +1563,174 @@ void MainWindow::on_lineEditInput_Search_Key_returnPressed()
 {
 on_btnSearch_clicked();
 }
+
+/**
+ * @brief 设置菜单项触发事件
+ *
+ * 打开设置对话框，允许用户修改：
+ * - 设备信息（设备名称、IP地址）
+ * - 网络配置（广播端口、传输端口、广播间隔）
+ * - 文件传输设置（下载目录、缓冲区大小、是否覆盖已存在文件）
+ *
+ * @note 如果用户修改了传输端口，需要重启TransferServer才能生效
+ */
+void MainWindow::on_actionSetting_triggered()
+{
+    SettingsDialog dialog(this);
+
+    // 如果有 TransferServer，可以连接端口变更信号
+    // connect(&dialog, &SettingsDialog::transferPortChanged, this, [=](int newPort) {
+    //     // 重启 TransferServer 以使用新端口
+    //     // TODO: 实现端口变更后的处理逻辑
+    // });
+
+    dialog.exec();  // 以模态方式显示对话框
+}
+
+/**
+ * @brief 我的共享菜单项触发事件
+ *
+ * 打开共享管理对话框，允许用户：
+ * - 查看所有共享的文件和文件夹列表
+ * - 添加新的共享（选择本地文件或文件夹）
+ * - 编辑现有共享的配置（名称、密码、权限、描述等）
+ * - 删除不再需要的共享
+ * - 激活/停用共享
+ * - 查看共享详细信息（路径、大小、访问次数等）
+ *
+ * @note 共享配置由 SharedFileManager 单例管理，支持持久化存储
+ */
+void MainWindow::on_actionMyshare_triggered()
+{
+    ShareManagerDialog dialog(this);
+    dialog.exec();  // 以模态方式显示对话框
+}
+
+/**
+ * @brief 浏览共享菜单项触发事件
+ *
+ * 打开浏览共享对话框，允许用户：
+ * - 选择局域网内的设备
+ * - 查看设备的共享列表
+ * - 浏览共享文件夹的内容
+ * - 下载共享文件到本地
+ * - 搜索共享内容（待实现）
+ *
+ * 功能说明：
+ * - 使用 DeviceBroadcaster 发现局域网内的设备
+ * - 通过 Pull 协议与远程设备通信
+ * - 支持浏览文件夹层级结构
+ * - 支持下载单个文件或多个文件
+ * - 显示下载进度和状态
+ *
+ * @note 对话框会创建临时的 DeviceListModel 和 DeviceBroadcaster 实例
+ *       关闭对话框后这些实例会自动释放
+ */
+void MainWindow::on_action_Shareview_triggered()
+{
+    // 创建设备广播器和列表模型
+    // 注意：这里创建临时实例，对话框关闭后会自动释放
+    // 如果需要持久化设备列表，应该将这些对象作为 MainWindow 的成员变量
+
+    // 1. 先创建广播器
+    DeviceBroadcaster* broadcaster = new DeviceBroadcaster(this);
+
+    // 2. 将广播器传给设备列表模型
+    DeviceListModel* deviceModel = new DeviceListModel(broadcaster, this);
+
+    // 3. 启动设备发现（UDP 广播）
+    broadcaster->start();
+
+    // 创建并显示浏览共享对话框
+    BrowseShareDialog dialog(deviceModel, this);
+    dialog.exec();  // 以模态方式显示对话框
+
+    // 对话框关闭后，Qt 的父子对象机制会自动释放 deviceModel 和 broadcaster
+    // 因为它们的 parent 是 this (MainWindow)
+    // 当对象被销毁时，定时器会自动停止，无需手动停止广播
+}
+void MainWindow::setupSystrayIcon()
+{
+    if (!QSystemTrayIcon::isSystemTrayAvailable()) {
+        mSystrayIcon = nullptr;
+        return;
+    }
+
+    mSystrayMenu = new QMenu(this);
+    mSystrayMenu->addAction(mShowMainWindowAction);
+    mSystrayMenu->addSeparator();
+    //mSystrayMenu->addAction(mSendFilesAction);
+    //mSystrayMenu->addAction(mSendFolderAction);
+    //mSystrayMenu->addSeparator();
+    mSystrayMenu->addAction(mAboutAction);
+    mSystrayMenu->addAction(mAboutQtAction);
+    mSystrayMenu->addSeparator();
+    mSystrayMenu->addAction(mQuitAction);
+
+    mSystrayIcon = new QSystemTrayIcon(QIcon(":/img/systray-icon.png"), this);
+    mSystrayIcon->setToolTip(PROGRAM_NAME);
+    mSystrayIcon->setContextMenu(mSystrayMenu);
+    mSystrayIcon->show();
+}
+void MainWindow::setupActions()
+{
+    mShowMainWindowAction = new QAction(tr("显示主窗口"), this);
+    connect(mShowMainWindowAction, &QAction::triggered, this, &MainWindow::onShowMainWindowTriggered);
+  /*
+    mSendFilesAction = new QAction(QIcon(":/img/file.png"), tr("发送文件..."), this);
+    connect(mSendFilesAction, &QAction::triggered, this, &MainWindow::onSendFilesActionTriggered);
+    mSendFolderAction = new QAction(QIcon(":/img/folder.png"), tr("发送文件夹..."), this);
+    connect(mSendFolderAction, &QAction::triggered, this, &MainWindow::onSendFolderActionTriggered);
+    mSettingsAction = new QAction(QIcon(":/img/settings.png"), tr("设置"), this);
+    connect(mSettingsAction, &QAction::triggered, this, &MainWindow::onSettingsActionTriggered);
+    mAboutAction = new QAction(QIcon(":/img/about.png"), tr("关于"), this);
+    mAboutAction->setMenuRole(QAction::AboutRole);
+    connect(mAboutAction, &QAction::triggered, this, &MainWindow::onAboutActionTriggered);
+    mAboutQtAction = new QAction(tr("关于Qt"), this);
+    mAboutQtAction->setMenuRole(QAction::AboutQtRole);
+    connect(mAboutQtAction, &QAction::triggered, QApplication::instance(), &QApplication::aboutQt);
+    mQuitAction = new QAction(tr("退出"), this);
+    connect(mQuitAction, &QAction::triggered, this, &MainWindow::quitApp);
+*/
+}
+/**
+ * @brief 设置主窗口可见性
+ * @param visible true表示显示窗口，false表示隐藏
+ *
+ * 显示窗口时：
+ * - 使用showNormal()恢复正常显示（非最大化）
+ * - 设置窗口状态为Active，确保窗口获得焦点
+ * - 多次调用processEvents()确保窗口状态正确更新
+ *
+ * 隐藏窗口时：
+ * - 直接调用hide()，窗口最小化到系统托盘
+ */
+void MainWindow::setMainWindowVisibility(bool visible)
+{
+    if (visible) {
+        showNormal();
+        setWindowState(Qt::WindowNoState);
+        qApp->processEvents();
+        setWindowState(Qt::WindowActive);
+        qApp->processEvents();
+        qApp->setActiveWindow(this);
+        qApp->processEvents();
+    }
+    else {
+        hide();
+    }
+}
+/**
+ * @brief 显示主窗口（从系统托盘恢复）
+ *
+ * 当用户点击系统托盘菜单的"显示主窗口"时触发
+ */
+void MainWindow::onShowMainWindowTriggered()
+{
+    setMainWindowVisibility(true);
+}
+
+
+
+
+

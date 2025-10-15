@@ -1786,9 +1786,18 @@ font: 10pt &quot;等线&quot;;</string>
     <addaction name="separator"/>
     <addaction name="actionContinuous"/>
    </widget>
+   <widget class="QMenu" name="menuTool">
+    <property name="title">
+     <string>工具</string>
+    </property>
+    <addaction name="actionMyshare"/>
+    <addaction name="action_Shareview"/>
+    <addaction name="actionSetting"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuView"/>
    <addaction name="menuHelp"/>
+   <addaction name="menuTool"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <property name="styleSheet">
@@ -1909,6 +1918,21 @@ border-radius: 4px;</string>
    </property>
    <property name="toolTip">
     <string>滚动显示</string>
+   </property>
+  </action>
+  <action name="actionSetting">
+   <property name="text">
+    <string>系统设置</string>
+   </property>
+  </action>
+  <action name="actionMyshare">
+   <property name="text">
+    <string>我的共享</string>
+   </property>
+  </action>
+  <action name="action_Shareview">
+   <property name="text">
+    <string>共享列表</string>
    </property>
   </action>
  </widget>
