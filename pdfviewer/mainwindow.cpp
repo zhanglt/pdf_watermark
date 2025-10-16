@@ -423,6 +423,8 @@ void MainWindow::on_actionAbout_Qt_triggered() {
  * 按照固定倍数（√2）放大当前的缩放系数
  */
 void MainWindow::on_actionZoom_In_triggered() {
+  // 先切换到自定义缩放模式，确保手动缩放生效
+  ui->pdfView->setZoomMode(QPdfView::CustomZoom);
   ui->pdfView->setZoomFactor(ui->pdfView->zoomFactor() * zoomMultiplier);
 }
 
@@ -431,6 +433,8 @@ void MainWindow::on_actionZoom_In_triggered() {
  * 按照固定倍数（√2）缩小当前的缩放系数
  */
 void MainWindow::on_actionZoom_Out_triggered() {
+  // 先切换到自定义缩放模式，确保手动缩放生效
+  ui->pdfView->setZoomMode(QPdfView::CustomZoom);
   ui->pdfView->setZoomFactor(ui->pdfView->zoomFactor() / zoomMultiplier);
 }
 

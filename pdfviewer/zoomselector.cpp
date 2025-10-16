@@ -65,11 +65,11 @@ void ZoomSelector::setZoomFactor(qreal zoomFactor) {
 
 /**
  * @brief 重置缩放选择器到默认状态
- * 
- * 将缩放选择器重置为100%（索引5对应"100%"选项）
+ *
+ * 将缩放选择器重置为"适合宽度"（索引0对应"适合宽度"选项）
  */
 void ZoomSelector::reset() {
-  setCurrentIndex(5);  // 设置为100%（在预设选项列表中的索引位置）
+  setCurrentIndex(0);  // 设置为"适合宽度"（在预设选项列表中的索引位置）
 }
 
 /**
