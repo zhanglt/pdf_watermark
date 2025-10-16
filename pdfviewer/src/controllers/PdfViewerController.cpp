@@ -90,7 +90,7 @@ void PdfViewerController::open(const QUrl &docLocation, QPdfDocument::DocumentEr
 {
     if (docLocation.isLocalFile()) {
         QPdfDocument::DocumentError error = m_document->load(docLocation.toLocalFile());
-        
+
         if (error != QPdfDocument::NoError) {
             err = error;
             emit openFailed(tr("无法打开文件"));
@@ -99,9 +99,15 @@ void PdfViewerController::open(const QUrl &docLocation, QPdfDocument::DocumentEr
             const QString title = !documentTitle.isEmpty() ? documentTitle : "PDF浏览器";
             emit documentOpened(title);
             err = error;
+
+            // 文档加载成功后，设置默认缩放模式为"适合宽度"
+            // 直接设置 pdfView 的缩放模式，确保立即生效
+            m_ui->pdfView->setZoomMode(QPdfView::FitToWidth);
+            // 同步更新 ZoomSelector 的显示文本
+            m_zoomSelector->setCurrentText("适合宽度");
         }
     } else {
-        QMessageBox::critical(nullptr, tr("文件打开错误"), 
+        QMessageBox::critical(nullptr, tr("文件打开错误"),
                               tr("%1 无效的本地文件").arg(docLocation.toString()));
         emit openFailed(tr("无效的本地文件"));
     }
@@ -131,7 +137,7 @@ void PdfViewerController::onActionOpenTriggered()
 
     if (toOpen.isValid()) {
         open(toOpen, err);
-        m_zoomSelector->setCurrentText("适合宽度");
+        // 注意：缩放模式在 open() 方法中已自动设置为"适合宽度"，无需重复设置
     }
 }
 
