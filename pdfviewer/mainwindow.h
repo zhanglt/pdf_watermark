@@ -1,158 +1,154 @@
-﻿#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+﻿/**
+ * @file mainwindow_refactored.h
+ * @brief 重构后的主窗口类
+ * 
+ * 简化后的MainWindow类，主要负责UI初始化和协调各控制器
+ */
 
-#include <QLabel>
-#include <QLoggingCategory>
+#ifndef MAINWINDOW_REFACTORED_H
+#define MAINWINDOW_REFACTORED_H
+#include <QSystemTrayIcon>
 #include <QMainWindow>
 #include <QThreadPool>
-#include <QSystemTrayIcon>
+#include <QLabel>
 #include "QPdfDocument"
-#include "function.h"
-#include "include/mark/multiWatermarkThreadSingle.h "
-#include "include/mark/watermarkThread.h"
-#include "include/mark/watermarkThreadSingle.h"
-#include "include/pdf2image/pdf2ImageThreadSingle.h"
-#include "include/search/SearchThread.h"
-
 #include "src/model/transfertablemodel.h"
 #include "src/model/devicelistmodel.h"
 #include "src/transfer/devicebroadcaster.h"
 #include "src/transfer/transferserver.h"
 
-#include <QMetaType>
-Q_DECLARE_LOGGING_CATEGORY(lcExample)
 QT_BEGIN_NAMESPACE
-namespace Ui {
-class MainWindow;
-}
-
-class QPdfDocument;
-class QPdfView;
+namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
-class PageSelector;
-class ZoomSelector;
+// 前向声明控制器类
+class PdfViewerController;
+class WatermarkController;
+class PdfConverterController;
+class PdfSplitMergeController;
+class ExcelSearchController;
 
-class MainWindow : public QMainWindow {
-  Q_OBJECT
+/**
+ * @brief 重构后的主窗口类
+ * 
+ * 负责：
+ * - UI初始化
+ * - 创建和管理控制器
+ * - 协调控制器之间的通信
+ * - 处理顶层菜单事件
+ */
+class MainWindow : public QMainWindow
+{
+    Q_OBJECT
 
- public:
-  explicit MainWindow(QWidget *parent = nullptr);
-  ~MainWindow();
-  ZoomSelector *m_zoomSelector;
-  watermarkThread *wmThread;
-  watermarkThreadSingle *wmThreadSinge;
-  multiWatermarkThreadSingle *mwmThreadSinge;
-  pdf2imageThreadSingle *pdf2imageThread;
-  QThreadPool threadPool;
-  int *COUNT;
-  QAtomicInt m_completedCount;
-  int m_totalFiles;
+public:
+    /**
+     * @brief 构造函数
+     * @param parent 父窗口
+     */
+    explicit MainWindow(QWidget *parent = nullptr);
 
- public slots:
-  void open(const QUrl &docLocation, QPdfDocument::DocumentError &err);
-  void viewWatermark();
-  void addWatermarkSingle(QString text, QString inputDir, QString outputDir,
-                          QString color, QString opacity, QString rotate,
-                          QString font, QString fontSize);
-  void exportPdf(QDir dir);
-  // void SlotSetCurrRow();
- private slots:
-  void bookmarkSelected(const QModelIndex &index);
-  void qprogresssindicat();
-  void initTable();
+    /**
+     * @brief 析构函数
+     */
+    ~MainWindow();
 
-  // action handlers
-  void on_actionOpen_triggered();
-  void on_actionQuit_triggered();
-  void on_actionAbout_triggered();
-  void on_actionAbout_Qt_triggered();
-  void on_actionZoom_In_triggered();
-  void on_actionZoom_Out_triggered();
-  void on_actionPrevious_Page_triggered();
-  void on_actionNext_Page_triggered();
-  void on_actionContinuous_triggered();
+    /**
+     * @brief 打开PDF文档（委托给PdfViewerController）
+     * @param docLocation PDF文件的URL路径
+     * @param err 返回的错误信息
+     */
+    void open(const QUrl &docLocation, QPdfDocument::DocumentError &err);
 
-  void on_btnAddWater_clicked();
-  void on_btnColorSelect_clicked();
-  void on_btnSelectInput_clicked();
-  void on_btnSelectOutput_clicked();
+    /**
+     * @brief 获取PDF查看控制器
+     * @return PDF查看控制器指针
+     */
+    PdfViewerController* pdfViewerController() const { return m_pdfViewerController; }
 
-  void on_btnExportPDF_clicked();
-  void on_cBoxFont_currentIndexChanged();
+private slots:
+    // 顶层菜单动作处理
+    /**
+     * @brief 退出应用程序
+     */
+    void on_actionQuit_triggered();
+    
+    /**
+     * @brief 显示关于对话框
+     */
+    void on_actionAbout_triggered();
+    
+    /**
+     * @brief 显示关于Qt对话框
+     */
+    void on_actionAbout_Qt_triggered();
 
-  void on_btnSelectImageFile_clicked();
+    /**
+     * @brief 处理文档打开成功
+     * @param title 文档标题
+     */
+    void onDocumentOpened(const QString &title);
 
-  void on_btnTransform_clicked();
-
-  void on_btnSelectImageDir_clicked();
-
-  void on_btnTransformBat_clicked();
-
-  void on_btnSelectPDFFile_clicked();
-
-  void on_btnPdfToImage_clicked();
-
-  void on_btnSelectFilesplit_clicked();
-
-  void on_lineEditInputFilesplit_textChanged(const QString &filename);
-
-  void on_btnSelectSplitDir_clicked();
-
-  void on_btnSplitPdf_clicked();
-
-  void on_lineEditSplitOutput_textChanged(const QString &filepath);
-
-  void on_btnAddFile_clicked();
-
-  void on_btnSelectMergeDir_clicked();
-
-  void on_btnMerge_clicked();
-
-  void on_lineEditInputFilesplit_editingFinished();
+    /**
+     * @brief 更新日志
+     * @param message 日志消息
+     */
+    void updateLog(const QString &message);
 
 
+    void on_actionSetting_triggered();
 
-  void on_btnSelectInput_Search_clicked();
-
-
-  void on_tabWidget_currentChanged(int index);
+    void on_actionMyshare_triggered();
   
-  void onSearchFinished(const QList<SearchResult> &results);
-  void onSearchProgress(int processed, int total, const QString &currentFileName);
-  void onSearchError(const QString &error);
+    void on_action_Shareview_triggered();
+    void setMainWindowVisibility(bool visible);
+    void onShowMainWindowTriggered();
   
-  bool isTreeWidgetEmpty(QTreeWidget *treeWidget);
-  QString exportTreeWidgetToExcel(QTreeWidget &treeWidget, const QString &exportFilePath);
+
+private:
+    /**
+     * @brief 初始化UI
+     */
+    void initializeUI();
+    
+    /**
+     * @brief 创建控制器
+     */
+    void createControllers();
+    
+    /**
+     * @brief 连接控制器信号
+     */
+    void connectControllers();
+    
+    /**
+     * @brief 连接UI信号到控制器
+     */
+    void connectUIToControllers();
+    
+    /**
+     * @brief 设置工具栏
+     */
+    void setupToolBar();
+ /** @brief 重写关闭事件，拦截窗口关闭操作 */
+ void closeEvent(QCloseEvent *event) override;
+ /** @brief 重写窗口状态改变事件，拦截最小化操作 */
+ void changeEvent(QEvent *event) override;
+
+private:
+    Ui::MainWindow *ui;                              ///< UI指针
+    QThreadPool m_threadPool;                        ///< 线程池
+    QLabel *m_titleLabel;                            ///< 标题标签
+    
+    // 控制器
+    PdfViewerController *m_pdfViewerController;      ///< PDF查看控制器
+    WatermarkController *m_watermarkController;      ///< 水印控制器
+    PdfConverterController *m_pdfConverterController; ///< PDF转换控制器
+    PdfSplitMergeController *m_splitMergeController; ///< PDF拆分合并控制器
+    ExcelSearchController *m_excelSearchController;   ///< Excel搜索控制器
 
 
-
-  void on_btnSearch_clicked();
-
-  void on_btnSearch_export_clicked();
-
-  void on_lineEditInput_Search_Key_returnPressed();
-
-  void on_actionSetting_triggered();
-
-  void on_actionMyshare_triggered();
-
-  void on_action_Shareview_triggered();
-  void setMainWindowVisibility(bool visible);
-  void onShowMainWindowTriggered();
-
-signals:
-  void Finished();
-
- protected:
-  /** @brief 重写关闭事件，拦截窗口关闭操作 */
-  void closeEvent(QCloseEvent *event) override;
-  /** @brief 重写窗口状态改变事件，拦截最小化操作 */
-  void changeEvent(QEvent *event) override;
-
- private:
-  Ui::MainWindow *ui;
-  // === UI初始化方法 ===
+      // === UI初始化方法 ===
   /** @brief 创建所有QAction对象并连接信号槽 */
   void setupActions();
   /** @brief 设置系统托盘图标和菜单 */
@@ -188,16 +184,6 @@ signals:
   //QAction* mAboutQtAction;                     ///< 关于Qt动作
   QAction* mQuitAction;                        ///< 退出动作
 
-
-
-
-
-
-
-  PageSelector *m_pageSelector;
-
-  QPdfDocument *m_document;
-  QLabel *m_title;
 };
 
-#endif  // MAINWINDOW_H
+#endif // MAINWINDOW_REFACTORED_H

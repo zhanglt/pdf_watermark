@@ -131,7 +131,7 @@ void PdfViewerController::onActionOpenTriggered()
 
     if (toOpen.isValid()) {
         open(toOpen, err);
-        m_zoomSelector->zoomModeChanged(QPdfView::FitToWidth);
+        m_zoomSelector->setCurrentText("适合宽度");
     }
 }
 
@@ -140,6 +140,8 @@ void PdfViewerController::onActionOpenTriggered()
  */
 void PdfViewerController::onActionZoomInTriggered()
 {
+    // 先切换到自定义缩放模式，否则在 FitToWidth/FitInView 模式下缩放不会生效
+    m_ui->pdfView->setZoomMode(QPdfView::CustomZoom);
     m_ui->pdfView->setZoomFactor(m_ui->pdfView->zoomFactor() * zoomMultiplier);
 }
 
@@ -148,6 +150,8 @@ void PdfViewerController::onActionZoomInTriggered()
  */
 void PdfViewerController::onActionZoomOutTriggered()
 {
+    // 先切换到自定义缩放模式，否则在 FitToWidth/FitInView 模式下缩放不会生效
+    m_ui->pdfView->setZoomMode(QPdfView::CustomZoom);
     m_ui->pdfView->setZoomFactor(m_ui->pdfView->zoomFactor() / zoomMultiplier);
 }
 

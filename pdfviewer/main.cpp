@@ -20,10 +20,12 @@
 #include <QApplication>
 #include <QFile>
 #include <QMessageBox>
+#include <QPdfDocument>
 #include <QPdfView>
 #include <QUrl>
 #include <QStandardPaths>
 #include "mainwindow.h"
+#include "src/controllers/PdfViewerController.h"
 #include "qtranslator.h"
 #include "zoomselector.h"
 
@@ -93,12 +95,14 @@ int main(int argc, char *argv[]) {
   
   // PDF文档错误处理变量
   QPdfDocument::DocumentError err;
-  
+
   // 自动打开示例PDF文档
   w.open(QUrl::fromLocalFile("doc/2.pdf"), err);
-  
-  // 发送信号，设置PDF文档显示模式为适应宽度
-  emit w.m_zoomSelector->zoomModeChanged(QPdfView::FitToWidth);
+
+  // 设置PDF文档显示模式为适应宽度
+  if (w.pdfViewerController() && w.pdfViewerController()->zoomSelector()) {
+      w.pdfViewerController()->zoomSelector()->setCurrentText("适合宽度");
+  }
 
   // 启动Qt事件循环，程序进入主循环等待用户交互
   return app.exec();
