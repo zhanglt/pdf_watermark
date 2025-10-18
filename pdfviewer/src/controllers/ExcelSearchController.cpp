@@ -179,24 +179,22 @@ void ExcelSearchController::onBtnSearchClicked()
     
     QStringList fileNames;
     traverseDirectory(dir, fileNames, "xlsx", "_out_");
-    
-    // 创建搜索线程
-    SearchThread *searchTask = new SearchThread();
-    searchTask->setFileNames(fileNames);
-    searchTask->setSearchText(key);
-    
+
+    // 创建搜索协调器（使用多线程并行搜索）
+    SearchCoordinator *coordinator = new SearchCoordinator(this);
+
     // 连接信号
-    connect(searchTask, &SearchThread::searchFinished, 
+    connect(coordinator, &SearchCoordinator::searchFinished,
             this, &ExcelSearchController::onSearchFinished);
-    connect(searchTask, &SearchThread::searchProgress, 
+    connect(coordinator, &SearchCoordinator::searchProgress,
             this, &ExcelSearchController::onSearchProgress);
-    connect(searchTask, &SearchThread::searchError, 
+    connect(coordinator, &SearchCoordinator::searchError,
             this, &ExcelSearchController::onSearchError);
-    
-    // 启动线程
-    QThreadPool::globalInstance()->start(searchTask);
-    
-    qDebug() << "搜索任务已提交到线程池";
+
+    // 启动多线程搜索（自动根据CPU核心数确定线程数）
+    coordinator->startSearch(fileNames, key, 0);
+
+    qDebug() << "多线程搜索任务已启动";
 }
 
 /**

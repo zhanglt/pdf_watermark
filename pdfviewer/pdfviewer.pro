@@ -45,6 +45,7 @@ SOURCES += \
     src/model/transfertablemodel.cpp \
     src/pdf2image/pdf2ImageThreadSingle.cpp \
     src/search/SearchThread.cpp \
+    src/search/SearchCoordinator.cpp \
     src/share/sharedfilemanager.cpp \
     src/slider/CustomSlider.cpp \
     src/textedit/CustomTextEdit.cpp \
@@ -82,6 +83,7 @@ HEADERS += \
     include/mytable.h \
     include/pdf2image/pdf2ImageThreadSingle.h \
     include/search/SearchThread.h \
+    include/search/SearchCoordinator.h \
     include/slider/CustomSlider.h \
     include/textedit/CustomTextEdit.h \
     lib/pdflib.h \

@@ -12,6 +12,7 @@
 #include <QString>
 #include <QList>
 #include "../../include/search/SearchThread.h"
+#include "../../include/search/SearchCoordinator.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

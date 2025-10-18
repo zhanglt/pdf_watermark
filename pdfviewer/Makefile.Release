@@ -85,6 +85,7 @@ SOURCES       = lib\pdflib.cpp \
 		src\model\transfertablemodel.cpp \
 		src\pdf2image\pdf2ImageThreadSingle.cpp \
 		src\search\SearchThread.cpp \
+		src\search\SearchCoordinator.cpp \
 		src\share\sharedfilemanager.cpp \
 		src\slider\CustomSlider.cpp \
 		src\textedit\CustomTextEdit.cpp \
@@ -112,6 +113,7 @@ SOURCES       = lib\pdflib.cpp \
 		release\moc_mytable.cpp \
 		release\moc_pdf2ImageThreadSingle.cpp \
 		release\moc_SearchThread.cpp \
+		release\moc_SearchCoordinator.cpp \
 		release\moc_CustomTextEdit.cpp \
 		release\moc_mainwindow.cpp \
 		release\moc_pageselector.cpp \
@@ -169,6 +171,7 @@ OBJECTS       = release\pdflib.obj \
 		release\transfertablemodel.obj \
 		release\pdf2ImageThreadSingle.obj \
 		release\SearchThread.obj \
+		release\SearchCoordinator.obj \
 		release\sharedfilemanager.obj \
 		release\CustomSlider.obj \
 		release\CustomTextEdit.obj \
@@ -197,6 +200,7 @@ OBJECTS       = release\pdflib.obj \
 		release\moc_mytable.obj \
 		release\moc_pdf2ImageThreadSingle.obj \
 		release\moc_SearchThread.obj \
+		release\moc_SearchCoordinator.obj \
 		release\moc_CustomTextEdit.obj \
 		release\moc_mainwindow.obj \
 		release\moc_pageselector.obj \
@@ -239,6 +243,7 @@ DIST          = lib/pdflib.dll \
 		include\mytable.h \
 		include\pdf2image\pdf2ImageThreadSingle.h \
 		include\search\SearchThread.h \
+		include\search\SearchCoordinator.h \
 		include\slider\CustomSlider.h \
 		include\textedit\CustomTextEdit.h \
 		lib\pdflib.h \
@@ -306,6 +311,7 @@ DIST          = lib/pdflib.dll \
 		src\model\transfertablemodel.cpp \
 		src\pdf2image\pdf2ImageThreadSingle.cpp \
 		src\search\SearchThread.cpp \
+		src\search\SearchCoordinator.cpp \
 		src\share\sharedfilemanager.cpp \
 		src\slider\CustomSlider.cpp \
 		src\textedit\CustomTextEdit.cpp \
@@ -661,8 +667,8 @@ all: Makefile.Release  release\pdfviewer.exe
 release\pdfviewer.exe: E:\test\qt\pdfwidgets\pdfviewer\lib\mupdf\lib\release\libmupdf.lib E:\test\qt\pdfwidgets\pdfviewer\lib\mupdf\lib\release\libpkcs7.lib E:\test\qt\pdfwidgets\pdfviewer\lib\mupdf\lib\release\libmuthreads.lib E:\test\qt\pdfwidgets\pdfviewer\lib\mupdf\lib\release\libthirdparty.lib H:\Qt\Qt5.15.10-release\lib\Qt5PdfWidgets.lib H:\Qt\Qt5.15.10-release\lib\Qt5PrintSupport.lib H:\Qt\Qt5.15.10-release\lib\Qt5Svg.lib H:\Qt\Qt5.15.10-release\lib\Qt5Widgets.lib H:\Qt\Qt5.15.10-release\lib\Qt5Pdf.lib H:\Qt\Qt5.15.10-release\lib\Qt5Gui.lib H:\Qt\Qt5.15.10-release\lib\Qt5Network.lib H:\Qt\Qt5.15.10-release\lib\Qt5Sql.lib H:\Qt\Qt5.15.10-release\lib\Qt5Core.lib H:\Qt\Qt5.15.10-release\lib\qtmain.lib ui_mainwindow.h ui_aboutdialog.h ui_browsesharedialog.h ui_receiverselectordialog.h ui_settingsdialog.h ui_sharemanagerdialog.h $(OBJECTS) release\pdfviewer_resource.res
 	$(LINKER) $(LFLAGS) /MANIFEST:embed /OUT:$(DESTDIR_TARGET) @<<
 release\pdflib.obj release\main.obj release\mainwindow.obj release\pageselector.obj release\FileDetector.obj release\FormatConverter.obj release\FileSystemUtils.obj release\GeometryUtils.obj release\PdfOperations.obj release\QProgressIndicator.obj release\StringConverter.obj release\WatermarkProcessor.obj release\ExcelSearchController.obj release\PdfConverterController.obj release\PdfSplitMergeController.obj release\PdfViewerController.obj release\WatermarkController.obj release\FileDetector.obj release\FileSystemUtils.obj release\FormatConverter.obj release\GeometryUtils.obj release\PdfOperations.obj release\StringConverter.obj release\WatermarkProcessor.obj release\CustomLineEdit.obj release\multiWatermarkThreadSingle.obj release\watermarkThread.obj release\watermarkThreadSingle.obj release\wmark.obj release\device.obj release\devicelistmodel.obj release\transferinfo.obj release\transfertablemodel.obj release\pdf2ImageThreadSingle.obj release\SearchThread.obj
-release\sharedfilemanager.obj release\CustomSlider.obj release\CustomTextEdit.obj release\devicebroadcaster.obj release\pullreceiver.obj release\pullsender.obj release\receiver.obj release\sender.obj release\transfer.obj release\transferserver.obj release\aboutdialog.obj release\browsesharedialog.obj release\receiverselectordialog.obj release\settings.obj release\settingsdialog.obj release\sharemanagerdialog.obj release\util.obj release\zoomselector.obj release\qrc_resources.obj release\qrc_res.obj release\moc_QProgressIndicator.obj release\moc_CustomLineEdit.obj release\moc_multiWatermarkThreadSingle.obj release\moc_watermarkThread.obj release\moc_watermarkThreadSingle.obj release\moc_mytable.obj release\moc_pdf2ImageThreadSingle.obj release\moc_SearchThread.obj release\moc_CustomTextEdit.obj release\moc_mainwindow.obj release\moc_pageselector.obj release\moc_ExcelSearchController.obj release\moc_PdfConverterController.obj release\moc_PdfSplitMergeController.obj
-release\moc_PdfViewerController.obj release\moc_WatermarkController.obj release\moc_transferinfo.obj release\moc_transfertablemodel.obj release\moc_sharedfilemanager.obj release\moc_devicebroadcaster.obj release\moc_pullreceiver.obj release\moc_pullsender.obj release\moc_transfer.obj release\moc_transferserver.obj release\moc_aboutdialog.obj release\moc_browsesharedialog.obj release\moc_receiverselectordialog.obj release\moc_settingsdialog.obj release\moc_sharemanagerdialog.obj release\moc_zoomselector.obj
+release\SearchCoordinator.obj release\sharedfilemanager.obj release\CustomSlider.obj release\CustomTextEdit.obj release\devicebroadcaster.obj release\pullreceiver.obj release\pullsender.obj release\receiver.obj release\sender.obj release\transfer.obj release\transferserver.obj release\aboutdialog.obj release\browsesharedialog.obj release\receiverselectordialog.obj release\settings.obj release\settingsdialog.obj release\sharemanagerdialog.obj release\util.obj release\zoomselector.obj release\qrc_resources.obj release\qrc_res.obj release\moc_QProgressIndicator.obj release\moc_CustomLineEdit.obj release\moc_multiWatermarkThreadSingle.obj release\moc_watermarkThread.obj release\moc_watermarkThreadSingle.obj release\moc_mytable.obj release\moc_pdf2ImageThreadSingle.obj release\moc_SearchThread.obj release\moc_SearchCoordinator.obj release\moc_CustomTextEdit.obj release\moc_mainwindow.obj release\moc_pageselector.obj release\moc_ExcelSearchController.obj release\moc_PdfConverterController.obj
+release\moc_PdfSplitMergeController.obj release\moc_PdfViewerController.obj release\moc_WatermarkController.obj release\moc_transferinfo.obj release\moc_transfertablemodel.obj release\moc_sharedfilemanager.obj release\moc_devicebroadcaster.obj release\moc_pullreceiver.obj release\moc_pullsender.obj release\moc_transfer.obj release\moc_transferserver.obj release\moc_aboutdialog.obj release\moc_browsesharedialog.obj release\moc_receiverselectordialog.obj release\moc_settingsdialog.obj release\moc_sharemanagerdialog.obj release\moc_zoomselector.obj
 $(LIBS)
 <<
 
@@ -675,11 +681,11 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) pdfviewer.zip $(SOURCES) $(DIST) pdfviewer.pro H:\Qt\Qt5.15.10-release\mkspecs\features\spec_pre.prf H:\Qt\Qt5.15.10-release\mkspecs\common\angle.conf H:\Qt\Qt5.15.10-release\mkspecs\common\windows-desktop.conf H:\Qt\Qt5.15.10-release\mkspecs\features\win32\windows_vulkan_sdk.prf H:\Qt\Qt5.15.10-release\mkspecs\common\windows-vulkan.conf H:\Qt\Qt5.15.10-release\mkspecs\common\msvc-desktop.conf H:\Qt\Qt5.15.10-release\mkspecs\qconfig.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_ext_freetype.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_ext_libEGL.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_ext_libGLESv2.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_ext_libjpeg.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_ext_libpng.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3danimation.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3danimation_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dcore.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dcore_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dextras.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dextras_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dinput.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dinput_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dlogic.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dlogic_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dquick.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dquick_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dquickanimation.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dquickanimation_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dquickextras.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dquickextras_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dquickinput.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dquickinput_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dquickrender.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dquickrender_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dquickscene2d.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dquickscene2d_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3drender.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3drender_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_accessibility_support_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_axbase.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_axbase_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_axcontainer.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_axcontainer_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_axserver.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_axserver_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_bluetooth.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_bluetooth_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_bodymovin_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_bootstrap_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_charts.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_charts_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_concurrent.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_concurrent_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_core.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_core_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_datavisualization.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_datavisualization_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_dbus.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_dbus_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_designer.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_designer_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_designercomponents_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_devicediscovery_support_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_edid_support_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_egl_support_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_fb_support_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_fontdatabase_support_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_gamepad.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_gamepad_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_gui.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_gui_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_help.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_help_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_location.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_location_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_multimedia.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_multimedia_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_multimediawidgets.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_multimediawidgets_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_network.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_network_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_networkauth.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_networkauth_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_nfc.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_nfc_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_opengl.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_opengl_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_openglextensions.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_openglextensions_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_packetprotocol_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_pdf.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_pdf_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_pdfwidgets.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_pdfwidgets_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_platformcompositor_support_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_positioning.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_positioning_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_positioningquick.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_positioningquick_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_printsupport.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_printsupport_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_purchasing.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_purchasing_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_qml.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_qml_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_qmldebug_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_qmldevtools_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_qmlmodels.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_qmlmodels_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_qmltest.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_qmltest_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_qmlworkerscript.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_qmlworkerscript_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quick.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quick3d.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quick3d_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quick3dassetimport.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quick3dassetimport_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quick3drender.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quick3drender_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quick3druntimerender.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quick3druntimerender_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quick3dutils.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quick3dutils_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quick_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quickcontrols2.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quickcontrols2_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quickparticles_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quickshapes_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quicktemplates2.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quicktemplates2_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quickwidgets.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quickwidgets_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_remoteobjects.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_remoteobjects_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_repparser.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_repparser_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_scxml.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_scxml_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_sensors.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_sensors_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_serialbus.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_serialbus_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_serialport.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_serialport_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_sql.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_sql_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_svg.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_svg_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_testlib.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_testlib_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_texttospeech.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_texttospeech_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_theme_support_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_uiplugin.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_uitools.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_uitools_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_virtualkeyboard.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_virtualkeyboard_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_webchannel.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_webchannel_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_webengine.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_webengine_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_webenginecore.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_webenginecore_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_webenginecoreheaders_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_webenginewidgets.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_webenginewidgets_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_websockets.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_websockets_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_webview.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_webview_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_widgets.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_widgets_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_winextras.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_winextras_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_xml.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_xml_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_zlib_private.pri H:\Qt\Qt5.15.10-release\mkspecs\features\qt_functions.prf H:\Qt\Qt5.15.10-release\mkspecs\features\qt_config.prf H:\Qt\Qt5.15.10-release\mkspecs\win32-msvc\qmake.conf H:\Qt\Qt5.15.10-release\mkspecs\features\spec_post.prf ..\.qmake.stash H:\Qt\Qt5.15.10-release\mkspecs\features\exclusive_builds.prf H:\Qt\Qt5.15.10-release\mkspecs\common\msvc-version.conf H:\Qt\Qt5.15.10-release\mkspecs\features\toolchain.prf H:\Qt\Qt5.15.10-release\mkspecs\features\default_pre.prf H:\Qt\Qt5.15.10-release\mkspecs\features\win32\default_pre.prf H:\Qt\Qt5.15.10-release\mkspecs\features\resolve_config.prf H:\Qt\Qt5.15.10-release\mkspecs\features\exclusive_builds_post.prf H:\Qt\Qt5.15.10-release\mkspecs\features\default_post.prf H:\Qt\Qt5.15.10-release\mkspecs\features\build_pass.prf H:\Qt\Qt5.15.10-release\mkspecs\features\qtquickcompiler.prf H:\Qt\Qt5.15.10-release\mkspecs\features\precompile_header.prf H:\Qt\Qt5.15.10-release\mkspecs\features\warn_on.prf H:\Qt\Qt5.15.10-release\mkspecs\features\qt.prf H:\Qt\Qt5.15.10-release\mkspecs\features\resources_functions.prf H:\Qt\Qt5.15.10-release\mkspecs\features\resources.prf H:\Qt\Qt5.15.10-release\mkspecs\features\moc.prf H:\Qt\Qt5.15.10-release\mkspecs\features\win32\opengl.prf H:\Qt\Qt5.15.10-release\mkspecs\features\uic.prf H:\Qt\Qt5.15.10-release\mkspecs\features\qmake_use.prf H:\Qt\Qt5.15.10-release\mkspecs\features\file_copies.prf H:\Qt\Qt5.15.10-release\mkspecs\features\win32\windows.prf H:\Qt\Qt5.15.10-release\mkspecs\features\testcase_targets.prf H:\Qt\Qt5.15.10-release\mkspecs\features\exceptions.prf H:\Qt\Qt5.15.10-release\mkspecs\features\yacc.prf H:\Qt\Qt5.15.10-release\mkspecs\features\lex.prf pdfviewer.pro resources.qrc src\res.qrc lib\qtxlsx\lib\release\Qt5Xlsx.prl H:\Qt\Qt5.15.10-release\lib\Qt5PdfWidgets.prl H:\Qt\Qt5.15.10-release\lib\Qt5PrintSupport.prl H:\Qt\Qt5.15.10-release\lib\Qt5Svg.prl H:\Qt\Qt5.15.10-release\lib\Qt5Widgets.prl H:\Qt\Qt5.15.10-release\lib\Qt5Pdf.prl H:\Qt\Qt5.15.10-release\lib\Qt5Gui.prl H:\Qt\Qt5.15.10-release\lib\Qt5Network.prl H:\Qt\Qt5.15.10-release\lib\Qt5Sql.prl H:\Qt\Qt5.15.10-release\lib\Qt5Core.prl H:\Qt\Qt5.15.10-release\lib\qtmain.prl   resources.qrc src\res.qrc H:\Qt\Qt5.15.10-release\mkspecs\features\data\dummy.cpp function.h include\QProgressIndicator.h include\function\FileDetector.h include\function\FileSystemUtils.h include\function\FormatConverter.h include\function\GeometryUtils.h include\function\PdfOperations.h include\function\StringConverter.h include\function\WatermarkProcessor.h include\lineedit\CustomLineEdit.h include\mark\mark.h include\mark\multiWatermarkThreadSingle.h include\mark\watermarkThread.h include\mark\watermarkThreadSingle.h include\mytable.h include\pdf2image\pdf2ImageThreadSingle.h include\search\SearchThread.h include\slider\CustomSlider.h include\textedit\CustomTextEdit.h lib\pdflib.h lib\pdflib.hpp mainwindow.h pageselector.h src\controllers\ExcelSearchController.h src\controllers\PdfConverterController.h src\controllers\PdfSplitMergeController.h src\controllers\PdfViewerController.h src\controllers\WatermarkController.h src\model\device.h src\model\devicelistmodel.h src\model\transferinfo.h src\model\transfertablemodel.h src\share\shareconfig.h src\share\sharedfilemanager.h src\share\shareditem.h src\transfer\devicebroadcaster.h src\transfer\pullreceiver.h src\transfer\pullsender.h src\transfer\receiver.h src\transfer\sender.h src\transfer\transfer.h src\transfer\transferserver.h src\ui\aboutdialog.h src\ui\browsesharedialog.h src\ui\receiverselectordialog.h src\ui\settings.h src\ui\settingsdialog.h src\ui\sharemanagerdialog.h src\ui\util.h zoomselector.h  lib\pdflib.cpp main.cpp mainwindow.cpp pageselector.cpp src\function\FileDetector.cpp src\function\FormatConverter.cpp src\function\FileSystemUtils.cpp src\function\GeometryUtils.cpp src\function\PdfOperations.cpp src\QProgressIndicator.cpp src\function\StringConverter.cpp src\function\WatermarkProcessor.cpp src\controllers\ExcelSearchController.cpp src\controllers\PdfConverterController.cpp src\controllers\PdfSplitMergeController.cpp src\controllers\PdfViewerController.cpp src\controllers\WatermarkController.cpp src\function\FileDetector.cpp src\function\FileSystemUtils.cpp src\function\FormatConverter.cpp src\function\GeometryUtils.cpp src\function\PdfOperations.cpp src\function\StringConverter.cpp src\function\WatermarkProcessor.cpp src\lineedit\CustomLineEdit.cpp src\mark\multiWatermarkThreadSingle.cpp src\mark\watermarkThread.cpp src\mark\watermarkThreadSingle.cpp src\mark\wmark.cpp src\model\device.cpp src\model\devicelistmodel.cpp src\model\transferinfo.cpp src\model\transfertablemodel.cpp src\pdf2image\pdf2ImageThreadSingle.cpp src\search\SearchThread.cpp src\share\sharedfilemanager.cpp src\slider\CustomSlider.cpp src\textedit\CustomTextEdit.cpp src\transfer\devicebroadcaster.cpp src\transfer\pullreceiver.cpp src\transfer\pullsender.cpp src\transfer\receiver.cpp src\transfer\sender.cpp src\transfer\transfer.cpp src\transfer\transferserver.cpp src\ui\aboutdialog.cpp src\ui\browsesharedialog.cpp src\ui\receiverselectordialog.cpp src\ui\settings.cpp src\ui\settingsdialog.cpp src\ui\sharemanagerdialog.cpp src\ui\util.cpp zoomselector.cpp mainwindow.ui src\ui\aboutdialog.ui src\ui\browsesharedialog.ui src\ui\receiverselectordialog.ui src\ui\settingsdialog.ui src\ui\sharemanagerdialog.ui    
+	$(ZIP) pdfviewer.zip $(SOURCES) $(DIST) pdfviewer.pro H:\Qt\Qt5.15.10-release\mkspecs\features\spec_pre.prf H:\Qt\Qt5.15.10-release\mkspecs\common\angle.conf H:\Qt\Qt5.15.10-release\mkspecs\common\windows-desktop.conf H:\Qt\Qt5.15.10-release\mkspecs\features\win32\windows_vulkan_sdk.prf H:\Qt\Qt5.15.10-release\mkspecs\common\windows-vulkan.conf H:\Qt\Qt5.15.10-release\mkspecs\common\msvc-desktop.conf H:\Qt\Qt5.15.10-release\mkspecs\qconfig.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_ext_freetype.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_ext_libEGL.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_ext_libGLESv2.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_ext_libjpeg.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_ext_libpng.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3danimation.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3danimation_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dcore.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dcore_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dextras.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dextras_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dinput.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dinput_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dlogic.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dlogic_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dquick.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dquick_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dquickanimation.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dquickanimation_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dquickextras.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dquickextras_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dquickinput.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dquickinput_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dquickrender.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dquickrender_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dquickscene2d.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3dquickscene2d_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3drender.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_3drender_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_accessibility_support_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_axbase.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_axbase_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_axcontainer.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_axcontainer_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_axserver.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_axserver_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_bluetooth.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_bluetooth_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_bodymovin_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_bootstrap_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_charts.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_charts_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_concurrent.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_concurrent_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_core.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_core_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_datavisualization.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_datavisualization_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_dbus.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_dbus_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_designer.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_designer_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_designercomponents_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_devicediscovery_support_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_edid_support_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_egl_support_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_fb_support_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_fontdatabase_support_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_gamepad.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_gamepad_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_gui.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_gui_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_help.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_help_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_location.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_location_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_multimedia.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_multimedia_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_multimediawidgets.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_multimediawidgets_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_network.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_network_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_networkauth.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_networkauth_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_nfc.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_nfc_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_opengl.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_opengl_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_openglextensions.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_openglextensions_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_packetprotocol_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_pdf.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_pdf_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_pdfwidgets.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_pdfwidgets_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_platformcompositor_support_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_positioning.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_positioning_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_positioningquick.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_positioningquick_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_printsupport.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_printsupport_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_purchasing.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_purchasing_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_qml.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_qml_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_qmldebug_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_qmldevtools_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_qmlmodels.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_qmlmodels_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_qmltest.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_qmltest_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_qmlworkerscript.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_qmlworkerscript_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quick.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quick3d.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quick3d_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quick3dassetimport.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quick3dassetimport_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quick3drender.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quick3drender_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quick3druntimerender.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quick3druntimerender_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quick3dutils.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quick3dutils_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quick_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quickcontrols2.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quickcontrols2_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quickparticles_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quickshapes_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quicktemplates2.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quicktemplates2_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quickwidgets.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_quickwidgets_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_remoteobjects.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_remoteobjects_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_repparser.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_repparser_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_scxml.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_scxml_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_sensors.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_sensors_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_serialbus.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_serialbus_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_serialport.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_serialport_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_sql.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_sql_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_svg.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_svg_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_testlib.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_testlib_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_texttospeech.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_texttospeech_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_theme_support_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_uiplugin.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_uitools.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_uitools_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_virtualkeyboard.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_virtualkeyboard_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_webchannel.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_webchannel_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_webengine.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_webengine_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_webenginecore.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_webenginecore_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_webenginecoreheaders_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_webenginewidgets.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_webenginewidgets_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_websockets.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_websockets_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_webview.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_webview_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_widgets.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_widgets_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_winextras.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_winextras_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_xml.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_xml_private.pri H:\Qt\Qt5.15.10-release\mkspecs\modules\qt_lib_zlib_private.pri H:\Qt\Qt5.15.10-release\mkspecs\features\qt_functions.prf H:\Qt\Qt5.15.10-release\mkspecs\features\qt_config.prf H:\Qt\Qt5.15.10-release\mkspecs\win32-msvc\qmake.conf H:\Qt\Qt5.15.10-release\mkspecs\features\spec_post.prf ..\.qmake.stash H:\Qt\Qt5.15.10-release\mkspecs\features\exclusive_builds.prf H:\Qt\Qt5.15.10-release\mkspecs\common\msvc-version.conf H:\Qt\Qt5.15.10-release\mkspecs\features\toolchain.prf H:\Qt\Qt5.15.10-release\mkspecs\features\default_pre.prf H:\Qt\Qt5.15.10-release\mkspecs\features\win32\default_pre.prf H:\Qt\Qt5.15.10-release\mkspecs\features\resolve_config.prf H:\Qt\Qt5.15.10-release\mkspecs\features\exclusive_builds_post.prf H:\Qt\Qt5.15.10-release\mkspecs\features\default_post.prf H:\Qt\Qt5.15.10-release\mkspecs\features\build_pass.prf H:\Qt\Qt5.15.10-release\mkspecs\features\qtquickcompiler.prf H:\Qt\Qt5.15.10-release\mkspecs\features\precompile_header.prf H:\Qt\Qt5.15.10-release\mkspecs\features\warn_on.prf H:\Qt\Qt5.15.10-release\mkspecs\features\qt.prf H:\Qt\Qt5.15.10-release\mkspecs\features\resources_functions.prf H:\Qt\Qt5.15.10-release\mkspecs\features\resources.prf H:\Qt\Qt5.15.10-release\mkspecs\features\moc.prf H:\Qt\Qt5.15.10-release\mkspecs\features\win32\opengl.prf H:\Qt\Qt5.15.10-release\mkspecs\features\uic.prf H:\Qt\Qt5.15.10-release\mkspecs\features\qmake_use.prf H:\Qt\Qt5.15.10-release\mkspecs\features\file_copies.prf H:\Qt\Qt5.15.10-release\mkspecs\features\win32\windows.prf H:\Qt\Qt5.15.10-release\mkspecs\features\testcase_targets.prf H:\Qt\Qt5.15.10-release\mkspecs\features\exceptions.prf H:\Qt\Qt5.15.10-release\mkspecs\features\yacc.prf H:\Qt\Qt5.15.10-release\mkspecs\features\lex.prf pdfviewer.pro resources.qrc src\res.qrc lib\qtxlsx\lib\release\Qt5Xlsx.prl H:\Qt\Qt5.15.10-release\lib\Qt5PdfWidgets.prl H:\Qt\Qt5.15.10-release\lib\Qt5PrintSupport.prl H:\Qt\Qt5.15.10-release\lib\Qt5Svg.prl H:\Qt\Qt5.15.10-release\lib\Qt5Widgets.prl H:\Qt\Qt5.15.10-release\lib\Qt5Pdf.prl H:\Qt\Qt5.15.10-release\lib\Qt5Gui.prl H:\Qt\Qt5.15.10-release\lib\Qt5Network.prl H:\Qt\Qt5.15.10-release\lib\Qt5Sql.prl H:\Qt\Qt5.15.10-release\lib\Qt5Core.prl H:\Qt\Qt5.15.10-release\lib\qtmain.prl   resources.qrc src\res.qrc H:\Qt\Qt5.15.10-release\mkspecs\features\data\dummy.cpp function.h include\QProgressIndicator.h include\function\FileDetector.h include\function\FileSystemUtils.h include\function\FormatConverter.h include\function\GeometryUtils.h include\function\PdfOperations.h include\function\StringConverter.h include\function\WatermarkProcessor.h include\lineedit\CustomLineEdit.h include\mark\mark.h include\mark\multiWatermarkThreadSingle.h include\mark\watermarkThread.h include\mark\watermarkThreadSingle.h include\mytable.h include\pdf2image\pdf2ImageThreadSingle.h include\search\SearchThread.h include\search\SearchCoordinator.h include\slider\CustomSlider.h include\textedit\CustomTextEdit.h lib\pdflib.h lib\pdflib.hpp mainwindow.h pageselector.h src\controllers\ExcelSearchController.h src\controllers\PdfConverterController.h src\controllers\PdfSplitMergeController.h src\controllers\PdfViewerController.h src\controllers\WatermarkController.h src\model\device.h src\model\devicelistmodel.h src\model\transferinfo.h src\model\transfertablemodel.h src\share\shareconfig.h src\share\sharedfilemanager.h src\share\shareditem.h src\transfer\devicebroadcaster.h src\transfer\pullreceiver.h src\transfer\pullsender.h src\transfer\receiver.h src\transfer\sender.h src\transfer\transfer.h src\transfer\transferserver.h src\ui\aboutdialog.h src\ui\browsesharedialog.h src\ui\receiverselectordialog.h src\ui\settings.h src\ui\settingsdialog.h src\ui\sharemanagerdialog.h src\ui\util.h zoomselector.h  lib\pdflib.cpp main.cpp mainwindow.cpp pageselector.cpp src\function\FileDetector.cpp src\function\FormatConverter.cpp src\function\FileSystemUtils.cpp src\function\GeometryUtils.cpp src\function\PdfOperations.cpp src\QProgressIndicator.cpp src\function\StringConverter.cpp src\function\WatermarkProcessor.cpp src\controllers\ExcelSearchController.cpp src\controllers\PdfConverterController.cpp src\controllers\PdfSplitMergeController.cpp src\controllers\PdfViewerController.cpp src\controllers\WatermarkController.cpp src\function\FileDetector.cpp src\function\FileSystemUtils.cpp src\function\FormatConverter.cpp src\function\GeometryUtils.cpp src\function\PdfOperations.cpp src\function\StringConverter.cpp src\function\WatermarkProcessor.cpp src\lineedit\CustomLineEdit.cpp src\mark\multiWatermarkThreadSingle.cpp src\mark\watermarkThread.cpp src\mark\watermarkThreadSingle.cpp src\mark\wmark.cpp src\model\device.cpp src\model\devicelistmodel.cpp src\model\transferinfo.cpp src\model\transfertablemodel.cpp src\pdf2image\pdf2ImageThreadSingle.cpp src\search\SearchThread.cpp src\search\SearchCoordinator.cpp src\share\sharedfilemanager.cpp src\slider\CustomSlider.cpp src\textedit\CustomTextEdit.cpp src\transfer\devicebroadcaster.cpp src\transfer\pullreceiver.cpp src\transfer\pullsender.cpp src\transfer\receiver.cpp src\transfer\sender.cpp src\transfer\transfer.cpp src\transfer\transferserver.cpp src\ui\aboutdialog.cpp src\ui\browsesharedialog.cpp src\ui\receiverselectordialog.cpp src\ui\settings.cpp src\ui\settingsdialog.cpp src\ui\sharemanagerdialog.cpp src\ui\util.cpp zoomselector.cpp mainwindow.ui src\ui\aboutdialog.ui src\ui\browsesharedialog.ui src\ui\receiverselectordialog.ui src\ui\settingsdialog.ui src\ui\sharemanagerdialog.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) release\pdflib.obj release\main.obj release\mainwindow.obj release\pageselector.obj release\FileDetector.obj release\FormatConverter.obj release\FileSystemUtils.obj release\GeometryUtils.obj release\PdfOperations.obj release\QProgressIndicator.obj release\StringConverter.obj release\WatermarkProcessor.obj release\ExcelSearchController.obj release\PdfConverterController.obj release\PdfSplitMergeController.obj release\PdfViewerController.obj release\WatermarkController.obj release\FileDetector.obj release\FileSystemUtils.obj release\FormatConverter.obj release\GeometryUtils.obj release\PdfOperations.obj release\StringConverter.obj release\WatermarkProcessor.obj release\CustomLineEdit.obj release\multiWatermarkThreadSingle.obj release\watermarkThread.obj release\watermarkThreadSingle.obj release\wmark.obj release\device.obj release\devicelistmodel.obj release\transferinfo.obj release\transfertablemodel.obj release\pdf2ImageThreadSingle.obj release\SearchThread.obj release\sharedfilemanager.obj release\CustomSlider.obj release\CustomTextEdit.obj release\devicebroadcaster.obj release\pullreceiver.obj release\pullsender.obj release\receiver.obj release\sender.obj release\transfer.obj release\transferserver.obj release\aboutdialog.obj release\browsesharedialog.obj release\receiverselectordialog.obj release\settings.obj release\settingsdialog.obj release\sharemanagerdialog.obj release\util.obj release\zoomselector.obj release\qrc_resources.obj release\qrc_res.obj release\moc_QProgressIndicator.obj release\moc_CustomLineEdit.obj release\moc_multiWatermarkThreadSingle.obj release\moc_watermarkThread.obj release\moc_watermarkThreadSingle.obj release\moc_mytable.obj release\moc_pdf2ImageThreadSingle.obj release\moc_SearchThread.obj release\moc_CustomTextEdit.obj release\moc_mainwindow.obj release\moc_pageselector.obj release\moc_ExcelSearchController.obj release\moc_PdfConverterController.obj release\moc_PdfSplitMergeController.obj release\moc_PdfViewerController.obj release\moc_WatermarkController.obj
-	-$(DEL_FILE) release\moc_transferinfo.obj release\moc_transfertablemodel.obj release\moc_sharedfilemanager.obj release\moc_devicebroadcaster.obj release\moc_pullreceiver.obj release\moc_pullsender.obj release\moc_transfer.obj release\moc_transferserver.obj release\moc_aboutdialog.obj release\moc_browsesharedialog.obj release\moc_receiverselectordialog.obj release\moc_settingsdialog.obj release\moc_sharemanagerdialog.obj release\moc_zoomselector.obj
+	-$(DEL_FILE) release\pdflib.obj release\main.obj release\mainwindow.obj release\pageselector.obj release\FileDetector.obj release\FormatConverter.obj release\FileSystemUtils.obj release\GeometryUtils.obj release\PdfOperations.obj release\QProgressIndicator.obj release\StringConverter.obj release\WatermarkProcessor.obj release\ExcelSearchController.obj release\PdfConverterController.obj release\PdfSplitMergeController.obj release\PdfViewerController.obj release\WatermarkController.obj release\FileDetector.obj release\FileSystemUtils.obj release\FormatConverter.obj release\GeometryUtils.obj release\PdfOperations.obj release\StringConverter.obj release\WatermarkProcessor.obj release\CustomLineEdit.obj release\multiWatermarkThreadSingle.obj release\watermarkThread.obj release\watermarkThreadSingle.obj release\wmark.obj release\device.obj release\devicelistmodel.obj release\transferinfo.obj release\transfertablemodel.obj release\pdf2ImageThreadSingle.obj release\SearchThread.obj release\SearchCoordinator.obj release\sharedfilemanager.obj release\CustomSlider.obj release\CustomTextEdit.obj release\devicebroadcaster.obj release\pullreceiver.obj release\pullsender.obj release\receiver.obj release\sender.obj release\transfer.obj release\transferserver.obj release\aboutdialog.obj release\browsesharedialog.obj release\receiverselectordialog.obj release\settings.obj release\settingsdialog.obj release\sharemanagerdialog.obj release\util.obj release\zoomselector.obj release\qrc_resources.obj release\qrc_res.obj release\moc_QProgressIndicator.obj release\moc_CustomLineEdit.obj release\moc_multiWatermarkThreadSingle.obj release\moc_watermarkThread.obj release\moc_watermarkThreadSingle.obj release\moc_mytable.obj release\moc_pdf2ImageThreadSingle.obj release\moc_SearchThread.obj release\moc_SearchCoordinator.obj release\moc_CustomTextEdit.obj release\moc_mainwindow.obj release\moc_pageselector.obj release\moc_ExcelSearchController.obj release\moc_PdfConverterController.obj release\moc_PdfSplitMergeController.obj
+	-$(DEL_FILE) release\moc_PdfViewerController.obj release\moc_WatermarkController.obj release\moc_transferinfo.obj release\moc_transfertablemodel.obj release\moc_sharedfilemanager.obj release\moc_devicebroadcaster.obj release\moc_pullreceiver.obj release\moc_pullsender.obj release\moc_transfer.obj release\moc_transferserver.obj release\moc_aboutdialog.obj release\moc_browsesharedialog.obj release\moc_receiverselectordialog.obj release\moc_settingsdialog.obj release\moc_sharemanagerdialog.obj release\moc_zoomselector.obj
 	-$(DEL_FILE) release\pdfviewer_resource.res
 
 distclean: clean 
@@ -744,9 +750,9 @@ compiler_moc_predefs_clean:
 release\moc_predefs.h: H:\Qt\Qt5.15.10-release\mkspecs\features\data\dummy.cpp
 	cl -BxH:\Qt\Qt5.15.10-release\bin\qmake.exe -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /utf-8 -O2 -MD -O2 -utf-8 -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E H:\Qt\Qt5.15.10-release\mkspecs\features\data\dummy.cpp 2>NUL >release\moc_predefs.h
 
-compiler_moc_header_make_all: release\moc_QProgressIndicator.cpp release\moc_CustomLineEdit.cpp release\moc_multiWatermarkThreadSingle.cpp release\moc_watermarkThread.cpp release\moc_watermarkThreadSingle.cpp release\moc_mytable.cpp release\moc_pdf2ImageThreadSingle.cpp release\moc_SearchThread.cpp release\moc_CustomTextEdit.cpp release\moc_mainwindow.cpp release\moc_pageselector.cpp release\moc_ExcelSearchController.cpp release\moc_PdfConverterController.cpp release\moc_PdfSplitMergeController.cpp release\moc_PdfViewerController.cpp release\moc_WatermarkController.cpp release\moc_transferinfo.cpp release\moc_transfertablemodel.cpp release\moc_sharedfilemanager.cpp release\moc_devicebroadcaster.cpp release\moc_pullreceiver.cpp release\moc_pullsender.cpp release\moc_transfer.cpp release\moc_transferserver.cpp release\moc_aboutdialog.cpp release\moc_browsesharedialog.cpp release\moc_receiverselectordialog.cpp release\moc_settingsdialog.cpp release\moc_sharemanagerdialog.cpp release\moc_zoomselector.cpp
+compiler_moc_header_make_all: release\moc_QProgressIndicator.cpp release\moc_CustomLineEdit.cpp release\moc_multiWatermarkThreadSingle.cpp release\moc_watermarkThread.cpp release\moc_watermarkThreadSingle.cpp release\moc_mytable.cpp release\moc_pdf2ImageThreadSingle.cpp release\moc_SearchThread.cpp release\moc_SearchCoordinator.cpp release\moc_CustomTextEdit.cpp release\moc_mainwindow.cpp release\moc_pageselector.cpp release\moc_ExcelSearchController.cpp release\moc_PdfConverterController.cpp release\moc_PdfSplitMergeController.cpp release\moc_PdfViewerController.cpp release\moc_WatermarkController.cpp release\moc_transferinfo.cpp release\moc_transfertablemodel.cpp release\moc_sharedfilemanager.cpp release\moc_devicebroadcaster.cpp release\moc_pullreceiver.cpp release\moc_pullsender.cpp release\moc_transfer.cpp release\moc_transferserver.cpp release\moc_aboutdialog.cpp release\moc_browsesharedialog.cpp release\moc_receiverselectordialog.cpp release\moc_settingsdialog.cpp release\moc_sharemanagerdialog.cpp release\moc_zoomselector.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) release\moc_QProgressIndicator.cpp release\moc_CustomLineEdit.cpp release\moc_multiWatermarkThreadSingle.cpp release\moc_watermarkThread.cpp release\moc_watermarkThreadSingle.cpp release\moc_mytable.cpp release\moc_pdf2ImageThreadSingle.cpp release\moc_SearchThread.cpp release\moc_CustomTextEdit.cpp release\moc_mainwindow.cpp release\moc_pageselector.cpp release\moc_ExcelSearchController.cpp release\moc_PdfConverterController.cpp release\moc_PdfSplitMergeController.cpp release\moc_PdfViewerController.cpp release\moc_WatermarkController.cpp release\moc_transferinfo.cpp release\moc_transfertablemodel.cpp release\moc_sharedfilemanager.cpp release\moc_devicebroadcaster.cpp release\moc_pullreceiver.cpp release\moc_pullsender.cpp release\moc_transfer.cpp release\moc_transferserver.cpp release\moc_aboutdialog.cpp release\moc_browsesharedialog.cpp release\moc_receiverselectordialog.cpp release\moc_settingsdialog.cpp release\moc_sharemanagerdialog.cpp release\moc_zoomselector.cpp
+	-$(DEL_FILE) release\moc_QProgressIndicator.cpp release\moc_CustomLineEdit.cpp release\moc_multiWatermarkThreadSingle.cpp release\moc_watermarkThread.cpp release\moc_watermarkThreadSingle.cpp release\moc_mytable.cpp release\moc_pdf2ImageThreadSingle.cpp release\moc_SearchThread.cpp release\moc_SearchCoordinator.cpp release\moc_CustomTextEdit.cpp release\moc_mainwindow.cpp release\moc_pageselector.cpp release\moc_ExcelSearchController.cpp release\moc_PdfConverterController.cpp release\moc_PdfSplitMergeController.cpp release\moc_PdfViewerController.cpp release\moc_WatermarkController.cpp release\moc_transferinfo.cpp release\moc_transfertablemodel.cpp release\moc_sharedfilemanager.cpp release\moc_devicebroadcaster.cpp release\moc_pullreceiver.cpp release\moc_pullsender.cpp release\moc_transfer.cpp release\moc_transferserver.cpp release\moc_aboutdialog.cpp release\moc_browsesharedialog.cpp release\moc_receiverselectordialog.cpp release\moc_settingsdialog.cpp release\moc_sharemanagerdialog.cpp release\moc_zoomselector.cpp
 release\moc_QProgressIndicator.cpp: include\QProgressIndicator.h \
 		H:\Qt\Qt5.15.10-release\include\QtGui\QColor \
 		H:\Qt\Qt5.15.10-release\include\QtGui\qcolor.h \
@@ -1698,6 +1704,171 @@ release\moc_SearchThread.cpp: include\search\SearchThread.h \
 		H:\Qt\Qt5.15.10-release\bin\moc.exe
 	H:\Qt\Qt5.15.10-release\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include E:/test/qt/pdfwidgets/pdfviewer/release/moc_predefs.h -IH:/Qt/Qt5.15.10-release/mkspecs/win32-msvc -IE:/test/qt/pdfwidgets/pdfviewer -IE:/test/qt/pdfwidgets/pdfviewer -IE:/test/qt/pdfwidgets/pdfviewer/lib/mupdf/include -IE:/test/qt/pdfwidgets/pdfviewer -IE:/test/qt/pdfwidgets/pdfviewer/lib/mupdf/lib/Release -IE:/test/qt/pdfwidgets/pdfviewer/lib/mupdf/lib/Release -IE:/test/qt/pdfwidgets/pdfviewer/lib/libxml2/include/libxml2 -IE:/test/qt/pdfwidgets/pdfviewer/lib/iconv/include -IE:/test/qt/pdfwidgets/pdfviewer/pdfviewer/lib/qtxlsx/include -IH:/Qt/Qt5.15.10-release/include -IH:/Qt/Qt5.15.10-release/include/QtPdfWidgets -IH:/Qt/Qt5.15.10-release/include/QtPrintSupport -IH:/Qt/Qt5.15.10-release/include/QtSvg -IH:/Qt/Qt5.15.10-release/include/QtWidgets -IH:/Qt/Qt5.15.10-release/include/QtPdf -IH:/Qt/Qt5.15.10-release/include/QtGui -IH:/Qt/Qt5.15.10-release/include/QtANGLE -IH:/Qt/Qt5.15.10-release/include/QtNetwork -IH:/Qt/Qt5.15.10-release/include/QtSql -IH:/Qt/Qt5.15.10-release/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\include" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt" include\search\SearchThread.h -o release\moc_SearchThread.cpp
 
+release\moc_SearchCoordinator.cpp: include\search\SearchCoordinator.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QObject \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qobject.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qobjectdefs.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qnamespace.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qglobal.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qconfig-bootstrapped.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qconfig.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtcore-config.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsystemdetection.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qprocessordetection.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcompilerdetection.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtypeinfo.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsysinfo.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qlogging.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qflags.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qatomic.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qbasicatomic.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qatomic_bootstrap.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qgenericatomic.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qatomic_cxx11.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qatomic_msvc.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qglobalstatic.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qmutex.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qnumeric.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qversiontagging.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qobjectdefs_impl.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstring.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qchar.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qbytearray.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qrefcount.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qarraydata.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstringliteral.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstringalgorithms.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstringview.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstringbuilder.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qlist.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qalgorithms.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qiterator.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qhashfunctions.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qpair.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qvector.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcontainertools_impl.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qpoint.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qbytearraylist.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstringlist.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qregexp.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstringmatcher.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcoreevent.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qscopedpointer.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qmetatype.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qvarlengtharray.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcontainerfwd.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qobject_impl.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QStringList \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QMutex \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QAtomicInt \
+		include\search\SearchThread.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QRunnable \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qrunnable.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QString \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QList \
+		lib\qtxlsx\include\QtXlsx\xlsxdocument.h \
+		..\..\QtXlsx\src\xlsx\xlsxdocument.h \
+		..\..\QtXlsx\src\xlsx\xlsxglobal.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QtGlobal \
+		..\..\QtXlsx\src\xlsx\xlsxformat.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\QFont \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qfont.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qtguiglobal.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qtgui-config.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qwindowdefs.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qwindowdefs_win.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsharedpointer.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qshareddata.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qhash.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsharedpointer_impl.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\QColor \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qcolor.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qrgb.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qrgba64.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QByteArray \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QExplicitlySharedDataPointer \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QVariant \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qvariant.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qmap.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qdebug.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtextstream.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qiodevice.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qlocale.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qset.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcontiguouscache.h \
+		..\..\QtXlsx\src\xlsx\xlsxworksheet.h \
+		..\..\QtXlsx\src\xlsx\xlsxabstractsheet.h \
+		..\..\QtXlsx\src\xlsx\xlsxabstractooxmlfile.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QSharedPointer \
+		..\..\QtXlsx\src\xlsx\xlsxcell.h \
+		..\..\QtXlsx\src\xlsx\xlsxcellrange.h \
+		..\..\QtXlsx\src\xlsx\xlsxcellreference.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QMap \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QPointF \
+		lib\qtxlsx\include\QtXlsx\xlsxformat.h \
+		lib\qtxlsx\include\QtXlsx\xlsxcellrange.h \
+		lib\qtxlsx\include\QtXlsx\xlsxworksheet.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\QTreeWidget \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtreewidget.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtwidgetsglobal.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtwidgets-config.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtreeview.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qabstractitemview.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qabstractscrollarea.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qframe.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qwidget.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qmargins.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qpaintdevice.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qrect.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsize.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qpalette.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qbrush.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qmatrix.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qpolygon.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qregion.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qdatastream.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qline.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qtransform.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qimage.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qpixelformat.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qpixmap.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qfontmetrics.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qfontinfo.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qsizepolicy.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qcursor.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qkeysequence.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qevent.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qurl.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qurlquery.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfile.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfiledevice.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qvector2d.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qtouchdevice.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qabstractitemmodel.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qitemselectionmodel.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qabstractitemdelegate.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qstyleoption.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qabstractspinbox.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qvalidator.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qregularexpression.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qicon.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qslider.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qabstractslider.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qstyle.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtabbar.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtabwidget.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qrubberband.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtreewidgetitemiterator.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\QTreeWidgetItem \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QThreadPool \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qthreadpool.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qthread.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qdeadlinetimer.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qelapsedtimer.h \
+		release\moc_predefs.h \
+		H:\Qt\Qt5.15.10-release\bin\moc.exe
+	H:\Qt\Qt5.15.10-release\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include E:/test/qt/pdfwidgets/pdfviewer/release/moc_predefs.h -IH:/Qt/Qt5.15.10-release/mkspecs/win32-msvc -IE:/test/qt/pdfwidgets/pdfviewer -IE:/test/qt/pdfwidgets/pdfviewer -IE:/test/qt/pdfwidgets/pdfviewer/lib/mupdf/include -IE:/test/qt/pdfwidgets/pdfviewer -IE:/test/qt/pdfwidgets/pdfviewer/lib/mupdf/lib/Release -IE:/test/qt/pdfwidgets/pdfviewer/lib/mupdf/lib/Release -IE:/test/qt/pdfwidgets/pdfviewer/lib/libxml2/include/libxml2 -IE:/test/qt/pdfwidgets/pdfviewer/lib/iconv/include -IE:/test/qt/pdfwidgets/pdfviewer/pdfviewer/lib/qtxlsx/include -IH:/Qt/Qt5.15.10-release/include -IH:/Qt/Qt5.15.10-release/include/QtPdfWidgets -IH:/Qt/Qt5.15.10-release/include/QtPrintSupport -IH:/Qt/Qt5.15.10-release/include/QtSvg -IH:/Qt/Qt5.15.10-release/include/QtWidgets -IH:/Qt/Qt5.15.10-release/include/QtPdf -IH:/Qt/Qt5.15.10-release/include/QtGui -IH:/Qt/Qt5.15.10-release/include/QtANGLE -IH:/Qt/Qt5.15.10-release/include/QtNetwork -IH:/Qt/Qt5.15.10-release/include/QtSql -IH:/Qt/Qt5.15.10-release/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\include" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt" include\search\SearchCoordinator.h -o release\moc_SearchCoordinator.cpp
+
 release\moc_CustomTextEdit.cpp: include\textedit\CustomTextEdit.h \
 		H:\Qt\Qt5.15.10-release\include\QtGui\QDragEnterEvent \
 		H:\Qt\Qt5.15.10-release\include\QtGui\qevent.h \
@@ -2431,6 +2602,8 @@ release\moc_ExcelSearchController.cpp: src\controllers\ExcelSearchController.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qthread.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qdeadlinetimer.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qelapsedtimer.h \
+		include\search\SearchCoordinator.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QAtomicInt \
 		release\moc_predefs.h \
 		H:\Qt\Qt5.15.10-release\bin\moc.exe
 	H:\Qt\Qt5.15.10-release\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include E:/test/qt/pdfwidgets/pdfviewer/release/moc_predefs.h -IH:/Qt/Qt5.15.10-release/mkspecs/win32-msvc -IE:/test/qt/pdfwidgets/pdfviewer -IE:/test/qt/pdfwidgets/pdfviewer -IE:/test/qt/pdfwidgets/pdfviewer/lib/mupdf/include -IE:/test/qt/pdfwidgets/pdfviewer -IE:/test/qt/pdfwidgets/pdfviewer/lib/mupdf/lib/Release -IE:/test/qt/pdfwidgets/pdfviewer/lib/mupdf/lib/Release -IE:/test/qt/pdfwidgets/pdfviewer/lib/libxml2/include/libxml2 -IE:/test/qt/pdfwidgets/pdfviewer/lib/iconv/include -IE:/test/qt/pdfwidgets/pdfviewer/pdfviewer/lib/qtxlsx/include -IH:/Qt/Qt5.15.10-release/include -IH:/Qt/Qt5.15.10-release/include/QtPdfWidgets -IH:/Qt/Qt5.15.10-release/include/QtPrintSupport -IH:/Qt/Qt5.15.10-release/include/QtSvg -IH:/Qt/Qt5.15.10-release/include/QtWidgets -IH:/Qt/Qt5.15.10-release/include/QtPdf -IH:/Qt/Qt5.15.10-release/include/QtGui -IH:/Qt/Qt5.15.10-release/include/QtANGLE -IH:/Qt/Qt5.15.10-release/include/QtNetwork -IH:/Qt/Qt5.15.10-release/include/QtSql -IH:/Qt/Qt5.15.10-release/include/QtCore -I"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\include" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt" src\controllers\ExcelSearchController.h -o release\moc_ExcelSearchController.cpp
@@ -6863,6 +7036,7 @@ release\mainwindow.obj: mainwindow.cpp mainwindow.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qrubberband.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtreewidgetitemiterator.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\QTreeWidgetItem \
+		include\search\SearchCoordinator.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\QMessageBox \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qmessagebox.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qdialog.h \
@@ -7968,6 +8142,8 @@ release\ExcelSearchController.obj: src\controllers\ExcelSearchController.cpp src
 		H:\Qt\Qt5.15.10-release\include\QtCore\qthread.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qdeadlinetimer.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qelapsedtimer.h \
+		include\search\SearchCoordinator.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QAtomicInt \
 		ui_mainwindow.h \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\QFileDialog \
 		H:\Qt\Qt5.15.10-release\include\QtWidgets\qfiledialog.h \
@@ -11296,6 +11472,170 @@ release\SearchThread.obj: src\search\SearchThread.cpp include\search\SearchThrea
 		H:\Qt\Qt5.15.10-release\include\QtCore\QDebug \
 		H:\Qt\Qt5.15.10-release\include\QtCore\QThread
 
+release\SearchCoordinator.obj: src\search\SearchCoordinator.cpp include\search\SearchCoordinator.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QObject \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qobject.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qobjectdefs.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qnamespace.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qglobal.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qconfig-bootstrapped.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qconfig.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtcore-config.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsystemdetection.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qprocessordetection.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcompilerdetection.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtypeinfo.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsysinfo.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qlogging.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qflags.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qatomic.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qbasicatomic.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qatomic_bootstrap.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qgenericatomic.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qatomic_cxx11.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qatomic_msvc.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qglobalstatic.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qmutex.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qnumeric.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qversiontagging.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qobjectdefs_impl.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstring.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qchar.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qbytearray.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qrefcount.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qarraydata.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstringliteral.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstringalgorithms.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstringview.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstringbuilder.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qlist.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qalgorithms.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qiterator.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qhashfunctions.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qpair.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qvector.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcontainertools_impl.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qpoint.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qbytearraylist.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstringlist.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qregexp.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qstringmatcher.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcoreevent.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qscopedpointer.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qmetatype.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qvarlengtharray.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcontainerfwd.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qobject_impl.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QStringList \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QMutex \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QAtomicInt \
+		include\search\SearchThread.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QRunnable \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qrunnable.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QString \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QList \
+		lib\qtxlsx\include\QtXlsx\xlsxdocument.h \
+		..\..\QtXlsx\src\xlsx\xlsxdocument.h \
+		..\..\QtXlsx\src\xlsx\xlsxglobal.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QtGlobal \
+		..\..\QtXlsx\src\xlsx\xlsxformat.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\QFont \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qfont.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qtguiglobal.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qtgui-config.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qwindowdefs.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qwindowdefs_win.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsharedpointer.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qshareddata.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qhash.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsharedpointer_impl.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\QColor \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qcolor.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qrgb.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qrgba64.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QByteArray \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QExplicitlySharedDataPointer \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QVariant \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qvariant.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qmap.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qdebug.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qtextstream.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qiodevice.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qlocale.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qset.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qcontiguouscache.h \
+		..\..\QtXlsx\src\xlsx\xlsxworksheet.h \
+		..\..\QtXlsx\src\xlsx\xlsxabstractsheet.h \
+		..\..\QtXlsx\src\xlsx\xlsxabstractooxmlfile.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QSharedPointer \
+		..\..\QtXlsx\src\xlsx\xlsxcell.h \
+		..\..\QtXlsx\src\xlsx\xlsxcellrange.h \
+		..\..\QtXlsx\src\xlsx\xlsxcellreference.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QMap \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QPointF \
+		lib\qtxlsx\include\QtXlsx\xlsxformat.h \
+		lib\qtxlsx\include\QtXlsx\xlsxcellrange.h \
+		lib\qtxlsx\include\QtXlsx\xlsxworksheet.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\QTreeWidget \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtreewidget.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtwidgetsglobal.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtwidgets-config.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtreeview.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qabstractitemview.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qabstractscrollarea.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qframe.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qwidget.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qmargins.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qpaintdevice.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qrect.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qsize.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qpalette.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qbrush.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qmatrix.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qpolygon.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qregion.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qdatastream.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qline.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qtransform.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qimage.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qpixelformat.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qpixmap.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qfontmetrics.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qfontinfo.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qsizepolicy.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qcursor.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qkeysequence.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qevent.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qurl.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qurlquery.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfile.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qfiledevice.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qvector2d.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qtouchdevice.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qabstractitemmodel.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qitemselectionmodel.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qabstractitemdelegate.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qstyleoption.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qabstractspinbox.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qvalidator.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qregularexpression.h \
+		H:\Qt\Qt5.15.10-release\include\QtGui\qicon.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qslider.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qabstractslider.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qstyle.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtabbar.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtabwidget.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qrubberband.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\qtreewidgetitemiterator.h \
+		H:\Qt\Qt5.15.10-release\include\QtWidgets\QTreeWidgetItem \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QThreadPool \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qthreadpool.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qthread.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qdeadlinetimer.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\qelapsedtimer.h \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QThread \
+		H:\Qt\Qt5.15.10-release\include\QtCore\QDebug
+
 release\sharedfilemanager.obj: src\share\sharedfilemanager.cpp src\share\sharedfilemanager.h \
 		H:\Qt\Qt5.15.10-release\include\QtCore\QObject \
 		H:\Qt\Qt5.15.10-release\include\QtCore\qobject.h \
@@ -14104,6 +14444,8 @@ release\moc_mytable.obj: release\moc_mytable.cpp
 release\moc_pdf2ImageThreadSingle.obj: release\moc_pdf2ImageThreadSingle.cpp 
 
 release\moc_SearchThread.obj: release\moc_SearchThread.cpp 
+
+release\moc_SearchCoordinator.obj: release\moc_SearchCoordinator.cpp 
 
 release\moc_CustomTextEdit.obj: release\moc_CustomTextEdit.cpp 
 
