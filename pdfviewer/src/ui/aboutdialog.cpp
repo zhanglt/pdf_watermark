@@ -95,9 +95,12 @@ void AboutDialog::onCreditsClicked(bool checked)
     }
 
     // 切换显示内容
-    ui->textContent->setVisible(!checked);     // 隐藏/显示默认内容
-    ui->textEdit->setVisible(checked);         // 显示/隐藏文本编辑框
-    ui->licenseBtn->setChecked(false);         // 取消License按钮的选中状态
+    ui->programVersionLbl->setVisible(!checked);   // 隐藏/显示版本标签
+    ui->programDescLbl->setVisible(!checked);      // 隐藏/显示描述标签
+    ui->line->setVisible(!checked);                // 隐藏/显示分隔线
+    ui->label_2->setVisible(!checked);             // 隐藏/显示版权标签
+    ui->textEdit->setVisible(checked);             // 显示/隐藏文本编辑框
+    ui->licenseBtn->setChecked(false);             // 取消License按钮的选中状态
 }
 
 /**
@@ -126,7 +129,10 @@ void AboutDialog::onLicenseClicked(bool checked)
     }
 
     // 切换显示内容
-    ui->textContent->setVisible(!checked);     // 隐藏/显示默认内容
-    ui->textEdit->setVisible(checked);         // 显示/隐藏文本编辑框
-    ui->creditBtn->setChecked(false);          // 取消Credits按钮的选中状态
+    ui->programVersionLbl->setVisible(!checked);   // 隐藏/显示版本标签
+    ui->programDescLbl->setVisible(!checked);      // 隐藏/显示描述标签
+    ui->line->setVisible(!checked);                // 隐藏/显示分隔线
+    ui->label_2->setVisible(!checked);             // 隐藏/显示版权标签
+    ui->textEdit->setVisible(checked);             // 显示/隐藏文本编辑框
+    ui->creditBtn->setChecked(false);              // 取消Credits按钮的选中状态
 }
