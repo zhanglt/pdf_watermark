@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file ExcelSearchController.cpp
  * @brief Excel搜索控制器实现
  */
@@ -14,6 +14,9 @@
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
 #include <QThreadPool>
+#include <QDesktopServices>
+#include <QFileInfo>
+#include <QSettings>
 #include <QDebug>
 #include "lib/qtxlsx/include/QtXlsx/xlsxdocument.h"
 #include "lib/qtxlsx/include/QtXlsx/xlsxformat.h"
@@ -349,15 +352,29 @@ void ExcelSearchController::onBtnSearchExportClicked()
         QMessageBox::information(nullptr, "数据导出", "搜索结果数据为空");
         return;
     }
-    
-    QString fileName = QFileDialog::getSaveFileName(nullptr, "保存文件", 
-                                                  "search.xlsx", 
+    QString key = m_ui->lineEditInput_Search_Key->text();
+    // 从持久化配置读取上次保存目录
+    QSettings settings("MyCompany", "PdfWidgets");
+    QString saveTempDir = settings.value("ExcelSearch/SaveDir").toString();
+    QString defaultPath = saveTempDir.isEmpty() ? key+".xlsx" : saveTempDir + "/"+key+".xlsx";
+
+
+    QString fileName = QFileDialog::getSaveFileName(nullptr, "保存文件",
+                                                  defaultPath,
                                                   "Excel Files (*.xlsx)");
-    QString result;
     if (!fileName.isEmpty()) {
-        result = exportTreeWidgetToExcel(*m_ui->treeWidget_Search, fileName);
+        // 持久化保存选择的目录
+        QFileInfo fi(fileName);
+        settings.setValue("ExcelSearch/SaveDir", fi.absolutePath());
+
+        QString result = exportTreeWidgetToExcel(*m_ui->treeWidget_Search, fileName);
         if (!result.isNull()) {
-            QMessageBox::information(nullptr, "导出结果", result);
+            QMessageBox::StandardButton reply = QMessageBox::question(
+                nullptr, "打开文件", "是否打开刚保存的文件？",
+                QMessageBox::Yes | QMessageBox::No);
+            if (reply == QMessageBox::Yes) {
+                QDesktopServices::openUrl(QUrl::fromLocalFile(fileName));
+            }
         }
     }
 }
